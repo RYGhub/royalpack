@@ -7,7 +7,7 @@ license = "AGPL-3.0-or-later"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-royalnet-discordpy = "^0.1.9"
+royalnet = "6.0.0a32"
 coloredlogs = "^15.0"
 
 [tool.poetry.dev-dependencies]
