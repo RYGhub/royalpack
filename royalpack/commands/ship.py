@@ -16,7 +16,7 @@ log = logging.getLogger(__name__)
 
 # Code
 @engi.PartialCommand.new(syntax=r"(?P<first>[A-Za-z]+)[\s+&]+(?P<second>[A-Za-z]+)")
-def ship(*, _sentry: engi.Sentry, _msg: engi.Message, first: str, second: str, **__):
+async def ship(*, _sentry: engi.Sentry, _msg: engi.Message, first: str, second: str, **__):
     """
     Ship two names together! 💞
     """

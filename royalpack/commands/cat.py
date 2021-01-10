@@ -17,7 +17,7 @@ log = logging.getLogger(__name__)
 
 # Code
 @engi.PartialCommand.new(syntax="")
-def cat(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
+async def cat(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
     """
     Send a cat in the chat! 🐈
     """

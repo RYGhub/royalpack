@@ -2,7 +2,7 @@ import royalnet.engineer as engi
 
 
 @engi.PartialCommand.new(syntax="")
-def ahnonlosoio(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
+async def ahnonlosoio(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
     """
     Ah, non lo so io!
     """
