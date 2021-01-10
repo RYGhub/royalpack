@@ -6,7 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/royalpack" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/royalpack.egg-info" />
     </content>
-    <orderEntry type="jdk" jdkName="Poetry (royalpack-6)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Poetry (royalpack)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
