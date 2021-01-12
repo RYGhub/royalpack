@@ -30,6 +30,8 @@ async def answer(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
         "🔵 yusssssss",
         "🔵 Non vedo perchè no",
         "🔵 Ha senso, ha perfettamente senso, nulla da obiettare, ha senso.",
+        "🔵 Yos!",
+        "🔵 Sì, ma tienilo segreto...",
 
         # risposte "no": 17
         "❌ No.",
@@ -49,6 +51,8 @@ async def answer(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
         "❌ lolno",
         "❌ [url=https://www.youtube.com/watch?v=5lbGAzo9RrM]NEIN NEIN NEIN NEIN[/url]",
         "❌ Delet dis",
+        "❌ Nopety nope!",
+        "❌ No, ma tienilo segreto.",
         
         # risposte "boh": 18
         "❔ Boh.",
@@ -69,6 +73,7 @@ async def answer(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
         "❔ maibi",
         "❔ maibi not",
         "❔ idk dude",
+        "❔ Non mi è permesso condividere questa informazione",
     ]
     
     h = hash(datetime.datetime.now())
