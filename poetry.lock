@@ -139,7 +139,7 @@ marker = "sys_platform == \"win32\""
 
 [[package]]
 name = "royalnet"
-version = "6.0.0a38"
+version = "6.0.2"
 description = "A multipurpose bot framework"
 category = "main"
 optional = false
@@ -215,7 +215,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.0"
 python-versions = "^3.8"
-content-hash = "5387c34e152ebde1d2c1ce2105278cfdd5f99b57183675b4d550efcb0b0de511"
+content-hash = "75fb3a03d8890c1e8fc8f5c0b4d080841038c8c3b8c69dace31509437179ba2f"
 
 [metadata.files]
 aiohttp = [
@@ -388,8 +388,8 @@ pyreadline = [
     {file = "pyreadline-2.1.zip", hash = "sha256:4530592fc2e85b25b1a9f79664433da09237c1a270e4d78ea5aa3a2c7229e2d1"},
 ]
 royalnet = [
-    {file = "royalnet-6.0.0a38-py3-none-any.whl", hash = "sha256:952c623eb56a10091a4cb4ec55439115300b422eda9f7cd467215b091584015f"},
-    {file = "royalnet-6.0.0a38.tar.gz", hash = "sha256:bf284e977064ff9b3f8fa6fd3919a9f5ca29f8bac2ec2f3fac07b646046d2c7f"},
+    {file = "royalnet-6.0.2-py3-none-any.whl", hash = "sha256:83ad7e07b030caa25c9d8e115ab0bb62654d1ec074ae8fa84cbf0a8aee9e63d8"},
+    {file = "royalnet-6.0.2.tar.gz", hash = "sha256:488ad855439a45a6c464c4573432f697e0f97178c128729821c021a3dbfb1778"},
 ]
 royalnet-console = [
     {file = "royalnet-console-0.3.0.tar.gz", hash = "sha256:1d64271afea18bb43d521c296bbc25a87e2ea57fa464f910de474bc066a58638"},

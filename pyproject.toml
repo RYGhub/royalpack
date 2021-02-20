@@ -16,7 +16,7 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-royalnet = "^6.0.0a36"
+royalnet = "^6.0.2"
 coloredlogs = "^15.0"
 aiohttp = "^3.7.3"
 
