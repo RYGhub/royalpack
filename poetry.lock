@@ -203,7 +203,7 @@ royalnet = ">=6.0.0a38,<7.0.0"
 
 [[package]]
 name = "royalnet-telethon"
-version = "0.1.6"
+version = "0.2.0"
 description = "A Telethon-based frontend for the royalnet.engineer module."
 category = "main"
 optional = false
@@ -301,7 +301,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "a27746cb8fe41ba51fa0cfb6dc16f6d8bcde31c71fab373db033e3ce4ec32a96"
+content-hash = "18147d331322411007ead0880f9c523d0e2c9a66c194bbee8c633b4eab481e7c"
 
 [metadata.files]
 aiohttp = [
@@ -549,8 +549,8 @@ royalnet-console = [
     {file = "royalnet_console-0.3.0-py3-none-any.whl", hash = "sha256:229dc72bacc8399b6d2f91062809907fe5d182dcec4bdc2e2973730d3339cc06"},
 ]
 royalnet-telethon = [
-    {file = "royalnet-telethon-0.1.6.tar.gz", hash = "sha256:08eb5f8a0035e73997776a8a300b28d57619b5ed7cb6567c867e19d056cd8d65"},
-    {file = "royalnet_telethon-0.1.6-py3-none-any.whl", hash = "sha256:16dcf4b9cc1c5a6fc060600d5c83abfa259a571e8750faf760213fa6f7800393"},
+    {file = "royalnet-telethon-0.2.0.tar.gz", hash = "sha256:1c3a2e7f3cb231b4692264037f448113af39c1686c63e2e9cd8ae7f1887d2bfe"},
+    {file = "royalnet_telethon-0.2.0-py3-none-any.whl", hash = "sha256:1ed81bbf56933291ae1856fdf5b378726c54db99321e4ff36575a3f5d14ef4a7"},
 ]
 rsa = [
     {file = "rsa-4.7.2-py3-none-any.whl", hash = "sha256:78f9a9bf4e7be0c5ded4583326e7461e3a3c5aae24073648b4bdfa797d78c9d2"},
