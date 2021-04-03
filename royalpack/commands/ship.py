@@ -36,13 +36,13 @@ async def ship(*, _sentry: engi.Sentry, _msg: engi.Message, first: str, second: 
     log.debug(f"Matches: {first_match!r} + {second_match!r}")
 
     # Get the matched characters if the matches were successful, or cut the names in half if they weren't
-    first = first_match.group(0) if first_match else first[:(len(first) // 2)]
-    second = second_match.group(0) if second_match else second[(len(second) // 2):]
+    first_crop = first_match.group(0) if first_match else first[:(len(first) // 2)]
+    second_crop = second_match.group(0) if second_match else second[(len(second) // 2):]
 
-    log.debug(f"Cropped: {first!r} + {second!r}")
+    log.debug(f"Cropped: {first_crop!r} + {second_crop!r}")
 
     # Combine the two parts
-    combined = f"{first}{second}"
+    combined = f"{first_crop}{second_crop}"
 
     log.info(f"Combined: {combined!r}")
 
