@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "royalpack"
-version = "6.0.0a3"
+version = "6.0.0"
 description = "Royalnet Commands for the RYG community"
 authors = ["Stefano Pigozzi <me@steffo.eu>"]
 license = "AGPL-3.0-or-later"
@@ -16,9 +16,10 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-royalnet = "^6.0.2"
+royalnet = "~6.1.4"
 coloredlogs = "^15.0"
-aiohttp = "^3.7.3"
+aiohttp = "^3.7.4"
+royalnet-telethon = "0.1.6"
 
 [tool.poetry.dev-dependencies]
 royalnet_console = "^0.3.0"

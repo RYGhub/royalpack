@@ -96,7 +96,7 @@ async def answer(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
 
     message = r.sample(ANSWERS, 1)[0]
 
-    await _msg.send_reply(text=message)
+    await _msg.reply(text=message)
 
 
 # Objects exported by this module
