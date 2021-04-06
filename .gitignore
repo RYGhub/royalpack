@@ -9,3 +9,10 @@ dist/
 
 # Sphinx
 /docs/build/
+
+# Royalpack
+royalpack.cfg.toml
+
+# Telethon
+bot.session
+bot.session-journal

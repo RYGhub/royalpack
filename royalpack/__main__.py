@@ -6,10 +6,11 @@ import asyncio
 import logging
 
 from . import commands
+from .database import engine, base
 
 logging.basicConfig(level="DEBUG")
 
-config = sc.Scroll.from_file(namespace="ROYALPACK", file_path=pathlib.Path("config.toml"))
+config = sc.Scroll.from_file(namespace="ROYALPACK", file_path=pathlib.Path("royalpack.cfg.toml"))
 
 pda = rt.TelethonPDA(
     tg_api_id=config["tapi.id"],
@@ -23,6 +24,12 @@ pda.register_partial(commands.cat, ["cat"])
 pda.register_partial(commands.color, ["color"])
 pda.register_partial(commands.ping, ["ping"])
 pda.register_partial(commands.ship, ["ship"])
+pda.register_partial(commands.rage_show, ["rage"])
+pda.register_partial(commands.rage_add, ["rage"])
+
+
+_engine = engine.lazy_engine.evaluate()
+base.Base.metadata.create_all(_engine)
 
 
 loop = asyncio.get_event_loop()

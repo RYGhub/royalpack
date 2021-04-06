@@ -20,6 +20,7 @@ royalnet = "~6.1.4"
 coloredlogs = "^15.0"
 aiohttp = "^3.7.4"
 royalnet-telethon = "~0.2.0"
+psycopg2 = "^2.8.6"
 
 [tool.poetry.dev-dependencies]
 royalnet_console = "^0.3.0"

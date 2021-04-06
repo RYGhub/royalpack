@@ -4,3 +4,4 @@ from .cat import *
 from .color import *
 from .ping import *
 from .ship import *
+from .rage import *
