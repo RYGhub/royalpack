@@ -1,8 +1,7 @@
 import royalnet.engineer as engi
 import royalnet.scrolls as sc
-import royalnet_telethon as rt
+import royalnet_console as rc
 import pathlib
-import asyncio
 import logging
 
 from . import commands
@@ -12,29 +11,23 @@ logging.basicConfig(level="DEBUG")
 
 config = sc.Scroll.from_file(namespace="ROYALPACK", file_path=pathlib.Path("royalpack.cfg.toml"))
 
-pda = rt.TelethonPDA(
-    tg_api_id=config["tapi.id"],
-    tg_api_hash=config["tapi.hash"],
-    bot_username=config["tapi.username"],
-)
+engine_ = engine.lazy_engine.evaluate()
+base.Base.metadata.create_all(engine_)
 
-pda.register_partial(commands.ahnonlosoio, ["ahnonlosoio"])
-pda.register_partial(commands.answer, ["answer"])
-pda.register_partial(commands.cat, ["cat"])
-pda.register_partial(commands.color, ["color"])
-pda.register_partial(commands.ping, ["ping"])
-pda.register_partial(commands.ship, ["ship"])
-pda.register_partial(commands.rage_show, ["rage"])
-pda.register_partial(commands.rage_add, ["rage"])
+pda = engi.PDA(implementations=[
+    rc.ConsolePDAImplementation(name="1", extensions=[
+        engi.SQLAlchemyExtension(engine=engine_)
+    ])
+])
+
+pda.implementations["console.1"].register_partialcommand(commands.ahnonlosoio, ["ahnonlosoio"])
+# pda.implementations["console.1"].register_partialcommand(commands.answer, ["answer"])
+# pda.implementations["console.1"].register_partialcommand(commands.cat, ["cat"])
+# pda.implementations["console.1"].register_partialcommand(commands.color, ["color"])
+# pda.implementations["console.1"].register_partialcommand(commands.ping, ["ping"])
+# pda.implementations["console.1"].register_partialcommand(commands.ship, ["ship"])
+# pda.implementations["console.1"].register_partialcommand(commands.rage_show, ["rage"])
+# pda.implementations["console.1"].register_partialcommand(commands.rage_add, ["rage"])
 
 
-_engine = engine.lazy_engine.evaluate()
-base.Base.metadata.create_all(_engine)
-
-
-loop = asyncio.get_event_loop()
-loop.run_until_complete(
-    pda.run(
-        bot_token=config["tapi.token"],
-    )
-)
+pda.run()
