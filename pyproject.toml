@@ -16,14 +16,14 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-royalnet = "~6.2.10"
 coloredlogs = "^15.0"
 aiohttp = "^3.7.4"
 psycopg2 = "^2.8.6"
+royalnet = "~6.3.0"
+royalnet_telethon = "^1.0.0"
+royalnet_console = "^2.0.0"
 
 [tool.poetry.dev-dependencies]
-royalnet_telethon = "~0.3.0"
-royalnet_console = "^2.0.0"
 
 [build-system]
 requires = ["poetry>=0.12"]
