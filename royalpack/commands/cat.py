@@ -1,22 +1,13 @@
-# Special imports
-from __future__ import annotations
-import royalnet.royaltyping as t
-
-# External imports
-import aiohttp
 import royalnet.engineer as engi
+import royalnet.engineer.conversation as c
+import aiohttp
 import logging
 import io
 
-# Internal imports
-# from . import something
-
-# Special global objects
 log = logging.getLogger(__name__)
 
 
-# Code
-@engi.PartialCommand.new(syntax="")
+@engi.TeleportingConversation
 async def cat(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
     """
     Send a cat in the chat! 🐈

@@ -1,10 +1,10 @@
 import royalnet.engineer as engi
-import royalnet_telethon as rt
+
 
 newline = "\n"
 
 
-@engi.PartialCommand.new(syntax="")
+@engi.TeleportingConversation
 async def debug(*, _sentry: engi.Sentry, _msg: engi.Message, _pda: engi.PDA, **__):
     """
     Check the implementations currently running on the PDA.
@@ -14,10 +14,10 @@ async def debug(*, _sentry: engi.Sentry, _msg: engi.Message, _pda: engi.PDA, **_
 
 - impls
 - commands
-    """)
+""")
 
 
-@engi.PartialCommand.new(syntax=r"impls")
+@engi.TeleportingConversation
 async def debug_impls(*, _sentry: engi.Sentry, _msg: engi.Message, _pda: engi.PDA, **__):
     await _msg.reply(text=f"""
 🐛 Implementazioni attive sul PDA:
@@ -26,7 +26,7 @@ async def debug_impls(*, _sentry: engi.Sentry, _msg: engi.Message, _pda: engi.PD
 """)
 
 
-@engi.PartialCommand.new(syntax=r"exts (?P<impl>\S+)")
+@engi.TeleportingConversation
 async def debug_exts(*, _sentry: engi.Sentry, _msg: engi.Message, _pda: engi.PDA, impl: str, **__):
     await _msg.reply(text=f"""
 🐛 Estensioni attive sull'implementazione {impl}:
@@ -35,7 +35,7 @@ async def debug_exts(*, _sentry: engi.Sentry, _msg: engi.Message, _pda: engi.PDA
 """)
 
 
-@engi.PartialCommand.new(syntax=r"convs (?P<impl>\S+)")
+@engi.TeleportingConversation
 async def debug_convs(*, _sentry: engi.Sentry, _msg: engi.Message, _pda: engi.PDA, impl: str, **__):
     implementation = _pda.implementations[impl]
 

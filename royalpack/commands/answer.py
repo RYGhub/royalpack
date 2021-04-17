@@ -1,21 +1,9 @@
-# Special imports
-from __future__ import annotations
-import royalnet.royaltyping as t
-
-# External imports
-import logging
-import random
-import datetime
 import royalnet.engineer as engi
-
-# Internal imports
-# from . import something
-
-# Special global objects
-log = logging.getLogger(__name__)
+import royalnet.engineer.conversation as c
+import datetime
+import random
 
 
-# Code
 ANSWERS = [
     # Cerchiamo di tenere bilanciate le tre colonne, o almeno le prime due.
     # Se avete un'idea ma metterebbe troppe opzioni in un'unica categoria, mettetela sotto commento.
@@ -85,7 +73,7 @@ ANSWERS = [
 ]
 
 
-@engi.PartialCommand.new(syntax=".*")
+@engi.TeleportingConversation
 async def answer(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
     """
     Fai una domanda al bot, che possa essere risposta con un sì o un no: lui ti risponderà!

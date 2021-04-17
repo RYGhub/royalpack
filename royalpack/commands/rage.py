@@ -4,7 +4,7 @@ import sqlalchemy as s
 import sqlalchemy.orm as so
 
 
-@engi.PartialCommand.new(syntax="")
+@engi.TeleportingConversation
 async def rage_show(*, _sentry: engi.Sentry, _msg: engi.Message, _session: so.Session, **__):
     """
     A-N-G-E-R-Y!
@@ -21,7 +21,7 @@ async def rage_show(*, _sentry: engi.Sentry, _msg: engi.Message, _session: so.Se
         await _msg.reply(text=f"😡 {rage.reason}")
 
 
-@engi.PartialCommand.new(syntax="(?P<reason>.+)")
+@engi.TeleportingConversation
 async def rage_add(*, _sentry: engi.Sentry, _msg: engi.Message, _session: so.Session, reason: str, **__):
     """
     A-N-G-E-R-Y!

@@ -1,7 +1,8 @@
 import royalnet.engineer as engi
+import royalnet.engineer.conversation as c
 
 
-@engi.PartialCommand.new(syntax="", lock=False)
+@engi.TeleportingConversation
 async def ciao(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
     await _msg.reply(text="👋 Ciao, chi sei?")
 

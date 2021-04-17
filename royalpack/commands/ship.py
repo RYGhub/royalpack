@@ -1,21 +1,11 @@
-# Special imports
-from __future__ import annotations
-import royalnet.royaltyping as t
-
-# External imports
 import royalnet.engineer as engi
 import logging
 import re
 
-# Internal imports
-# from . import something
-
-# Special global objects
 log = logging.getLogger(__name__)
 
 
-# Code
-@engi.PartialCommand.new(syntax=r"(?P<first>[A-Za-z]+)[\s+&]+(?P<second>[A-Za-z]+)")
+@engi.TeleportingConversation
 async def ship(*, _sentry: engi.Sentry, _msg: engi.Message, first: str, second: str, **__):
     """
     Ship two names together! 💞

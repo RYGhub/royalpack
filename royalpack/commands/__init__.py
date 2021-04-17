@@ -8,4 +8,3 @@ from .ship import *
 from .rage import *
 from .debug import *
 from .ciao import *
-from .help import *

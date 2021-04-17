@@ -1,7 +1,8 @@
 import royalnet.engineer as engi
+import royalnet.engineer.conversation as c
 
 
-@engi.PartialCommand.new(syntax="")
+@engi.TeleportingConversation
 async def color(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
     """
     Invia un colore in chat...?
