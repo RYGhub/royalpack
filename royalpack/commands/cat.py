@@ -10,7 +10,7 @@ log = logging.getLogger(__name__)
 @engi.TeleportingConversation
 async def cat(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
     """
-    Send a cat in the chat! 🐈
+    Invia un gatto in chat! 🐈
     """
 
     log.debug("Creating a new HTTP session")

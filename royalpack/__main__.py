@@ -49,11 +49,8 @@ register_telegram(commands.ciaoruozi, ["ciaoruozi"])
 register_telegram(commands.color, ["color"])
 register_telegram(commands.ping, ["ping"])
 register_telegram(commands.ship, ["ship"], r"(?P<first>[A-Za-z]+)[\s+&]+(?P<second>[A-Za-z]+)")
-register_telegram(commands.debug, ["debug"])
-register_telegram(commands.debug_impls, ["debug"], r"impls")
-register_telegram(commands.debug_exts, ["debug"], r"exts (?P<impl>\S+)")
-register_telegram(commands.debug_convs, ["debug"], r"convs (?P<impl>\S+)")
-register_telegram(commands.ciao, ["ciao"])
+register_telegram(commands.emojify, ["emojify"], r"(?P<message>.+)")
+
 
 pda.implementations["telethon.1"].register_conversation(r)
 

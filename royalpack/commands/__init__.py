@@ -5,5 +5,4 @@ from .ciaoruozi import *
 from .color import *
 from .ping import *
 from .ship import *
-from .debug import *
-from .ciao import *
+from .emojify import *
