@@ -18,10 +18,15 @@ async def ship(*, _sentry: engi.Sentry, _msg: engi.Message, first: str, second: 
 
     log.debug(f"Lowercased: {first!r} + {second!r}")
 
-    # Get all letters until the first vowel, included
-    first_match = re.search(r"^[A-Za-z][^aeiouAEIOU]*[aeiouAEIOU]?", first)
-    # Get all letters from the second to last vowel, excluded
-    second_match = re.search(r"[^aeiouAEIOU]*[aeiouAEIOU]?[A-Za-z]$", second)
+    # Decide the number of groups to keep
+    first_groups = len(first) // 5
+    second_groups = len(second) // 5
+
+    log.debug(f"Keeping first:{first} second:{second} groups")
+
+    # Try to get a match
+    first_match = re.search(rf"^(?:[^aeiou]*[aeiou]){{,{first_groups}}}", first)
+    second_match = re.search(rf"(?:[^aeiou\s]*[aeiou]){{,{second_groups}}}[a-z]?$", second)
 
     log.debug(f"Matches: {first_match!r} + {second_match!r}")
 
