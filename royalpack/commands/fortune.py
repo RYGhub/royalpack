@@ -39,7 +39,7 @@ _fortunes = [
     "🥇 Oggi vincerai qualcosa!",
     "🏴‍☠️ Oggi salperai i sette mari con la tua ciurma pirata!",
     "🕒 Oggi sarà ieri, e domani sarà oggi!",
-    "🔙 Oggi torneai indietro nel tempo!",
+    "🔙 Oggi tornerai indietro nel tempo!",
     "🚨 Oggi suonerà l'allarme della Velvet Room!",
     "🏳️‍🌈 Oggi scoprirai l'esistenza di almeno un gender che non conoscevi!",
     "🥴 Oggi ti dimenticherai come ci si siede!",
