@@ -11,3 +11,4 @@ from .fortune import *
 from .pmots import *
 from .spell import *
 from .smecds import *
+from .man import *
