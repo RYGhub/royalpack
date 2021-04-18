@@ -8,3 +8,4 @@ from .ship import *
 from .emojify import *
 from .dog import *
 from .fortune import *
+from .pmots import *
