@@ -27,6 +27,7 @@ steam = "^1.2.0"
 SQLAlchemy-Utils = "^0.37.0"
 arrow = "^1.0.3"
 colour = "^0.1.5"
+royalspells = "^3.2"
 
 [tool.poetry.dev-dependencies]
 

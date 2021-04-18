@@ -343,6 +343,14 @@ royalnet = ">=6.4.0,<6.5.0"
 Telethon = ">=1.21.1,<2.0.0"
 
 [[package]]
+name = "royalspells"
+version = "3.2"
+description = "A package to procedurally generate useless spells!"
+category = "main"
+optional = false
+python-versions = "~=3.6"
+
+[[package]]
 name = "rsa"
 version = "4.7.2"
 description = "Pure-Python RSA implementation"
@@ -504,7 +512,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "cb11116be1dc62024392fa97315da722acf0f700b8142d32047b03ee19625977"
+content-hash = "83cf43c506e9d5e452c90d52620743ac27e7f40405b5bae1da20b181612879c3"
 
 [metadata.files]
 aiohttp = [
@@ -896,6 +904,9 @@ royalnet-console = [
 royalnet-telethon = [
     {file = "royalnet-telethon-1.0.2.tar.gz", hash = "sha256:cf2dd0394576bbf9e3b9a9355273e898af85acbdbbe2efc20c36a697fb093d61"},
     {file = "royalnet_telethon-1.0.2-py3-none-any.whl", hash = "sha256:64503dde289e71c3faa3b7b0e005b66081a6a86645d0d811d4c4b671db3267e8"},
+]
+royalspells = [
+    {file = "royalspells-3.2.tar.gz", hash = "sha256:2bd4a9a66514532e35c02c3907425af48c7cb292364c4843c795719a82b25dfe"},
 ]
 rsa = [
     {file = "rsa-4.7.2-py3-none-any.whl", hash = "sha256:78f9a9bf4e7be0c5ded4583326e7461e3a3c5aae24073648b4bdfa797d78c9d2"},

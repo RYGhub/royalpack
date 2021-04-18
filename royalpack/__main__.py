@@ -55,6 +55,7 @@ register_telegram(commands.dog_breedlist, ["dog"], "(?:list|help|aiuto)")
 register_telegram(commands.dog_breed, ["dog"], "(?P<breed>[A-Za-z/]+)")
 register_telegram(commands.fortune, ["fortune"])
 register_telegram(commands.pmots, ["pmots"])
+register_telegram(commands.spell, ["spell"], "(?P<spellname>.+)")
 
 
 pda.implementations["telethon.1"].register_conversation(r)
