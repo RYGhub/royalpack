@@ -10,3 +10,4 @@ from .dog import *
 from .fortune import *
 from .pmots import *
 from .spell import *
+from .smecds import *
