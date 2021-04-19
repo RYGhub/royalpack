@@ -12,3 +12,4 @@ from .pmots import *
 from .spell import *
 from .smecds import *
 from .man import *
+from .login import *

@@ -56,7 +56,7 @@ _fortunes = [
 
 
 @engi.TeleportingConversation
-async def fortune(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
+async def fortune(*, _msg: engi.Message, **__):
     """
     Come sarà la giornata di oggi?
     """

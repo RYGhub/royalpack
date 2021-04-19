@@ -303,7 +303,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
 
 [[package]]
 name = "royalnet"
-version = "6.5.0"
+version = "6.5.4"
 description = "A multipurpose bot framework"
 category = "main"
 optional = false
@@ -512,7 +512,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "d09a25572708f3d976eec40c086da014232918d5d1cd689866c831bc324b598d"
+content-hash = "c30fdf09f35a2430d64998b966b2648d1bed68a9a1e58e45339f5a1a53895263"
 
 [metadata.files]
 aiohttp = [
@@ -894,8 +894,8 @@ requests = [
     {file = "requests-2.25.1.tar.gz", hash = "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"},
 ]
 royalnet = [
-    {file = "royalnet-6.5.0-py3-none-any.whl", hash = "sha256:1c1f0ddb4891d1951bd8fe2e9a4139cc5b3a039d9b2318c0cabd489dc2253ee3"},
-    {file = "royalnet-6.5.0.tar.gz", hash = "sha256:dc4e5a284e8e2f36f259b5fe88e36a5947984c78600fd22e695e62277c787951"},
+    {file = "royalnet-6.5.4-py3-none-any.whl", hash = "sha256:68d30fdd00653a5e79eab2b22a8c5bb16103e08e8674ec8f4b13ff1bdf1d33d2"},
+    {file = "royalnet-6.5.4.tar.gz", hash = "sha256:fbab17b911c2ee200c0f7bfd5d2bcc4d1d3f9771b41ab64a848a08cdd464e3d8"},
 ]
 royalnet-console = [
     {file = "royalnet-console-2.0.4.tar.gz", hash = "sha256:049948a558a2ee7359f808cf61faef08789ce9e3969a0dfb94e65bd912ffcffc"},

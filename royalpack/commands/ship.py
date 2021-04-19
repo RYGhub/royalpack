@@ -6,7 +6,7 @@ log = logging.getLogger(__name__)
 
 
 @engi.TeleportingConversation
-async def ship(*, _sentry: engi.Sentry, _msg: engi.Message, first: str, second: str, **__):
+async def ship(*, _msg: engi.Message, first: str, second: str, **__):
     """
     Shippa insieme due persone! 💞
     """

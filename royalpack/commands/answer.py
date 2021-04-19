@@ -74,7 +74,7 @@ ANSWERS = [
 
 
 @engi.TeleportingConversation
-async def answer(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
+async def answer(*, _msg: engi.Message, **__):
     """
     Fai una domanda al bot, che possa essere risposta con un sì o un no: lui ti risponderà!
     """

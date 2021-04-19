@@ -2,7 +2,7 @@ import royalnet.engineer as engi
 
 
 @engi.TeleportingConversation
-async def pmots(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
+async def pmots(*, _msg: engi.Message, **__):
     """
     Riprenditi da uno stomp colossale!
 

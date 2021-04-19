@@ -2,7 +2,7 @@ import royalnet.engineer as engi
 
 
 @engi.TeleportingConversation
-async def ping(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
+async def ping(*, _msg: engi.Message, **__):
     """
     Gioca a ping pong con il bot. 🏓
     """

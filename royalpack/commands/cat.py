@@ -8,7 +8,7 @@ log = logging.getLogger(__name__)
 
 
 @engi.TeleportingConversation
-async def cat(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
+async def cat(*, _msg: engi.Message, **__):
     """
     Invia un gatto in chat! 🐈
     """

@@ -55,7 +55,7 @@ _ds_list = ["della secca", "del seccatore", "del secchiello", "del secchio", "de
 
 
 @engi.TeleportingConversation
-async def smecds(*, _sentry: engi.Sentry, _msg: engi.Message, **__):
+async def smecds(*, _msg: engi.Message, **__):
     """
     Secondo me, è colpa dello stagista...
     """

@@ -5,7 +5,7 @@ import royalnet_telethon.bullet.contents
 
 
 @engi.TeleportingConversation
-async def ciaoruozi(*, _sentry: engi.Sentry, _msg: engi.Message, _imp, **__):
+async def ciaoruozi(*, _msg: engi.Message, _imp, **__):
     """
     Saluta Ruozi, una creatura leggendaria che potrebbe esistere o non esistere in Royal Games.
     """
