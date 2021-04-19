@@ -210,7 +210,6 @@ async def register_user_telethon(
     return tg
 
 
-
 @engi.use_database(db.lazy_session_class)
 @engi.TeleportingConversation
 async def login(*, _msg: engi.Message, _session: so.Session, _imp, **__):
@@ -261,15 +260,21 @@ async def login(*, _msg: engi.Message, _session: so.Session, _imp, **__):
 
     user = await register_user_generic(session=_session, user_info=ui)
 
-    if isinstance(_imp, royalnet_telethon.TelethonPDAImplementation):
-        sender = await _msg.sender
-        tg = await register_user_telethon(session=_session, user_info=ui, telethon_user=sender._user)
-
     log.debug(f"Committing session...")
     _session.commit()
 
     log.debug(f"Done, notifying the user...")
     await private.send_message(text=f"✅ Login riuscito! Sei loggato come {user.name}!")
+
+    if isinstance(_imp, royalnet_telethon.TelethonPDAImplementation):
+        sender = await _msg.sender
+        tg = await register_user_telethon(session=_session, user_info=ui, telethon_user=sender._user)
+
+        log.debug(f"Committing session...")
+        _session.commit()
+
+        log.debug(f"Done, notifying the user...")
+        await private.send_message(text=f"↔️ Sincronizzazione con Telegram riuscita! Sei loggato come {tg.mention()}!")
 
 
 __all__ = ("login",)
