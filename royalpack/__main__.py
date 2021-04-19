@@ -56,6 +56,7 @@ register_telegram(commands.spell, ["spell"], "(?P<spellname>.+)")
 register_telegram(commands.smecds, ["smecds"])
 register_telegram(commands.man, ["man", "help"], "(?P<commandname>[A-Za-z]+)")
 register_telegram(commands.login, ["login"])
+register_telegram(commands.whoami, ["whoami"])
 
 
 pda.implementations["telethon.1"].register_conversation(r)

@@ -1,6 +1,5 @@
 import royalnet.royaltyping as t
 import royalnet.engineer as engi
-import sqlalchemy.sql as ss
 import sqlalchemy.orm as so
 import royalpack.database as db
 import royalpack.config as cfg
@@ -15,6 +14,73 @@ import async_timeout
 log = logging.getLogger(__name__)
 
 # FIXME: Properly handle errors in this function!
+
+
+@engi.use_database(db.lazy_session_class)
+@engi.TeleportingConversation
+async def login(*, _msg: engi.Message, _session: so.Session, _imp, **__):
+    """
+    Fai il login al tuo account Royalnet.
+    """
+    log.debug("Evaluating config...")
+    config = cfg.lazy_config.evaluate()
+
+    private = await enforce_private_message(msg=_msg)
+
+    async with aiohttp.ClientSession() as http_session:
+
+        dc = await device_code_request(
+            http_session=http_session,
+            client_id=config["auth.client.id"],
+            device_url=config["auth.url.device"],
+            scopes=["profile", "email", "openid"],
+        )
+
+        await prompt_login(
+            channel=private,
+            verification_url=dc['verification_uri_complete'],
+            user_code=dc['user_code']
+        )
+
+        try:
+            async with async_timeout.timeout(dc["expires_in"]):
+                at = await device_code_exchange(
+                    http_session=http_session,
+                    client_id=config["auth.client.id"],
+                    token_url=config["auth.url.token"],
+                    device_code=dc["device_code"],
+                    sleep_time=9
+                )
+        except asyncio.TimeoutError:
+            await notify_expiration(
+                channel=private
+            )
+            return
+
+        ui = await get_user_info(
+            http_session=http_session,
+            userinfo_url=config["auth.url.userinfo"],
+            token_type=at["token_type"],
+            access_token=at["access_token"],
+        )
+
+    user = await register_user_generic(session=_session, user_info=ui)
+
+    log.debug(f"Committing session...")
+    _session.commit()
+
+    log.debug(f"Done, notifying the user...")
+    await private.send_message(text=f"✅ Login riuscito! Sei loggato come {user.name}!")
+
+    if isinstance(_imp, royalnet_telethon.TelethonPDAImplementation):
+        sender = await _msg.sender
+        tg = await register_user_telethon(session=_session, user_info=ui, telethon_user=sender._user)
+
+        log.debug(f"Committing session...")
+        _session.commit()
+
+        log.debug(f"Done, notifying the user...")
+        await private.send_message(text=f"↔️ Sincronizzazione con Telegram riuscita! Sei loggato come {tg.mention()}!")
 
 
 async def enforce_private_message(msg: engi.Message) -> engi.Channel:
@@ -208,73 +274,6 @@ async def register_user_telethon(
     )
     session.merge(tg)
     return tg
-
-
-@engi.use_database(db.lazy_session_class)
-@engi.TeleportingConversation
-async def login(*, _msg: engi.Message, _session: so.Session, _imp, **__):
-    """
-    Fai il login al tuo account Royalnet.
-    """
-    log.debug("Evaluating config...")
-    config = cfg.lazy_config.evaluate()
-
-    private = await enforce_private_message(msg=_msg)
-
-    async with aiohttp.ClientSession() as http_session:
-
-        dc = await device_code_request(
-            http_session=http_session,
-            client_id=config["auth.client.id"],
-            device_url=config["auth.url.device"],
-            scopes=["profile", "email", "openid"],
-        )
-
-        await prompt_login(
-            channel=private,
-            verification_url=dc['verification_uri_complete'],
-            user_code=dc['user_code']
-        )
-
-        try:
-            async with async_timeout.timeout(dc["expires_in"]):
-                at = await device_code_exchange(
-                    http_session=http_session,
-                    client_id=config["auth.client.id"],
-                    token_url=config["auth.url.token"],
-                    device_code=dc["device_code"],
-                    sleep_time=9
-                )
-        except asyncio.TimeoutError:
-            await notify_expiration(
-                channel=private
-            )
-            return
-
-        ui = await get_user_info(
-            http_session=http_session,
-            userinfo_url=config["auth.url.userinfo"],
-            token_type=at["token_type"],
-            access_token=at["access_token"],
-        )
-
-    user = await register_user_generic(session=_session, user_info=ui)
-
-    log.debug(f"Committing session...")
-    _session.commit()
-
-    log.debug(f"Done, notifying the user...")
-    await private.send_message(text=f"✅ Login riuscito! Sei loggato come {user.name}!")
-
-    if isinstance(_imp, royalnet_telethon.TelethonPDAImplementation):
-        sender = await _msg.sender
-        tg = await register_user_telethon(session=_session, user_info=ui, telethon_user=sender._user)
-
-        log.debug(f"Committing session...")
-        _session.commit()
-
-        log.debug(f"Done, notifying the user...")
-        await private.send_message(text=f"↔️ Sincronizzazione con Telegram riuscita! Sei loggato come {tg.mention()}!")
 
 
 __all__ = ("login",)
