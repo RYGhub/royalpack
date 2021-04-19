@@ -20,7 +20,7 @@ log = logging.getLogger(__name__)
 @engi.TeleportingConversation
 async def login(*, _msg: engi.Message, _session: so.Session, _imp, **__):
     """
-    Fai il login al tuo account Royalnet.
+    Fai il login al tuo RYGaccount.
     """
     log.debug("Evaluating config...")
     config = cfg.lazy_config.evaluate()
