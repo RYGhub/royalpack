@@ -18,9 +18,6 @@ base.Base.metadata.create_all(engine_)
 pda = engi.PDA(implementations=[
     rt.TelethonPDAImplementation(
         name="1",
-        extensions=[
-            engi.SQLAlchemyExtension(engine=engine_),
-        ],
         tg_api_id=config["telegram.api.id"],
         tg_api_hash=config["telegram.api.hash"],
         bot_username=config["telegram.bot.username"],

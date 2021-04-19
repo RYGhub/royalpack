@@ -303,7 +303,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
 
 [[package]]
 name = "royalnet"
-version = "6.4.5"
+version = "6.5.0"
 description = "A multipurpose bot framework"
 category = "main"
 optional = false
@@ -317,7 +317,7 @@ toml = ">=0.10.1,<0.11.0"
 
 [[package]]
 name = "royalnet-console"
-version = "2.0.3"
+version = "2.0.4"
 description = "A terminal-based frontend for the royalnet.engineer module."
 category = "main"
 optional = false
@@ -327,11 +327,11 @@ python-versions = ">=3.8,<4.0"
 click = ">=7.1.2,<8.0.0"
 colorama = ">=0.4.4,<0.5.0"
 psutil = ">=5.8.0,<6.0.0"
-royalnet = ">=6.4.0,<6.5.0"
+royalnet = ">=6.5.0,<6.6.0"
 
 [[package]]
 name = "royalnet-telethon"
-version = "1.0.2"
+version = "2.0.0"
 description = "A Telethon-based frontend for the royalnet.engineer module."
 category = "main"
 optional = false
@@ -339,7 +339,7 @@ python-versions = ">=3.8,<4.0"
 
 [package.dependencies]
 click = ">=7.1.2,<8.0.0"
-royalnet = ">=6.4.0,<6.5.0"
+royalnet = ">=6.5.0,<6.6.0"
 Telethon = ">=1.21.1,<2.0.0"
 
 [[package]]
@@ -512,7 +512,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "83cf43c506e9d5e452c90d52620743ac27e7f40405b5bae1da20b181612879c3"
+content-hash = "d09a25572708f3d976eec40c086da014232918d5d1cd689866c831bc324b598d"
 
 [metadata.files]
 aiohttp = [
@@ -894,16 +894,16 @@ requests = [
     {file = "requests-2.25.1.tar.gz", hash = "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"},
 ]
 royalnet = [
-    {file = "royalnet-6.4.5-py3-none-any.whl", hash = "sha256:8500f4074a248b4504de8580c081197259e51792cc63365818ad7696f81eff2a"},
-    {file = "royalnet-6.4.5.tar.gz", hash = "sha256:b78a18345c5bb7711e6452c2de0a08918be07f2e94894e3c1be5797a8c4290ab"},
+    {file = "royalnet-6.5.0-py3-none-any.whl", hash = "sha256:1c1f0ddb4891d1951bd8fe2e9a4139cc5b3a039d9b2318c0cabd489dc2253ee3"},
+    {file = "royalnet-6.5.0.tar.gz", hash = "sha256:dc4e5a284e8e2f36f259b5fe88e36a5947984c78600fd22e695e62277c787951"},
 ]
 royalnet-console = [
-    {file = "royalnet-console-2.0.3.tar.gz", hash = "sha256:52701e101bfa9a9f19543f8708aa3152e84b0fb8444ad0e22a85fc7a5a47750e"},
-    {file = "royalnet_console-2.0.3-py3-none-any.whl", hash = "sha256:8a7695f585aa90dd25549a0787dc4484b0d1f61766297af9ae47cd0c262b11fb"},
+    {file = "royalnet-console-2.0.4.tar.gz", hash = "sha256:049948a558a2ee7359f808cf61faef08789ce9e3969a0dfb94e65bd912ffcffc"},
+    {file = "royalnet_console-2.0.4-py3-none-any.whl", hash = "sha256:b1e7be36f24e76c6eb1f298b5fbdd3902ae62d280ecac2b9d8afefeedf7d2b38"},
 ]
 royalnet-telethon = [
-    {file = "royalnet-telethon-1.0.2.tar.gz", hash = "sha256:cf2dd0394576bbf9e3b9a9355273e898af85acbdbbe2efc20c36a697fb093d61"},
-    {file = "royalnet_telethon-1.0.2-py3-none-any.whl", hash = "sha256:64503dde289e71c3faa3b7b0e005b66081a6a86645d0d811d4c4b671db3267e8"},
+    {file = "royalnet-telethon-2.0.0.tar.gz", hash = "sha256:aa914b68d0f1034cd1c3ab33317e1c4d7a0fdbee4ed62a6f6158982cff3930c7"},
+    {file = "royalnet_telethon-2.0.0-py3-none-any.whl", hash = "sha256:ef14bdbda096627409c2bf667aeecef76ae4d044ec8acb4e994d63c76f82bc90"},
 ]
 royalspells = [
     {file = "royalspells-3.2.tar.gz", hash = "sha256:2bd4a9a66514532e35c02c3907425af48c7cb292364c4843c795719a82b25dfe"},
