@@ -10,8 +10,8 @@ import logging
 import arrow
 import async_timeout
 
-
 log = logging.getLogger(__name__)
+
 
 # FIXME: Properly handle errors in this function!
 
@@ -22,6 +22,7 @@ async def login(*, _msg: engi.Message, _session: so.Session, _imp, **__):
     """
     Fai il login al tuo RYGaccount.
     """
+
     log.debug("Evaluating config...")
     config = cfg.lazy_config.evaluate()
 
@@ -140,10 +141,10 @@ async def prompt_login(channel: engi.Channel, verification_url: str, user_code: 
     log.debug("Asking user to login...")
 
     await channel.send_message(
-    text=f"🌍 Effettua il RYGlogin al seguente URL, poi premi Confirm:\n"
-         f"{verification_url}\n"
-         f"\n"
-         f"(Codice: {user_code})"
+        text=f"🌍 Effettua il RYGlogin al seguente URL, poi premi Confirm:\n"
+             f"{verification_url}\n"
+             f"\n"
+             f"(Codice: {user_code})"
     )
 
 

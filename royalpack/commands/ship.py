@@ -1,6 +1,7 @@
-import royalnet.engineer as engi
 import logging
 import re
+
+import royalnet.engineer as engi
 
 log = logging.getLogger(__name__)
 

@@ -1,8 +1,8 @@
-import royalnet.engineer as engi
-import royalnet.engineer.conversation as c
-import aiohttp
-import logging
 import io
+import logging
+
+import aiohttp
+import royalnet.engineer as engi
 
 log = logging.getLogger(__name__)
 

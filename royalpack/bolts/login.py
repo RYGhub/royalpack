@@ -3,13 +3,15 @@
 """
 
 from __future__ import annotations
-import typing as t
+
 import functools
+import logging
+
+import royalnet.engineer as engi
+import royalnet_telethon
 import sqlalchemy.orm as so
 import sqlalchemy.sql as ss
-import royalnet.engineer as engi
-import logging
-import royalnet_telethon
+
 import royalpack.database as db
 
 log = logging.getLogger(__name__)
@@ -26,6 +28,7 @@ def use_ryglogin(allow_anonymous=False):
                             an error instead.
     :return: The decorator to use to decorate the function.
     """
+
     def decorator(f):
         @functools.wraps(f)
         async def decorated(_session: so.Session, _imp: engi.PDAImplementation, _msg: engi.Message, **f_kwargs):
@@ -56,7 +59,9 @@ def use_ryglogin(allow_anonymous=False):
                     return
 
             return await f(_session=_session, _imp=_imp, _msg=_msg, **f_kwargs, _account=account, _user=user)
+
         return decorated
+
     return decorator
 
 

@@ -1,6 +1,7 @@
-import royalnet.engineer as engi
-import aiohttp
 import io
+
+import aiohttp
+import royalnet.engineer as engi
 
 
 @engi.TeleportingConversation
