@@ -331,7 +331,7 @@ royalnet = ">=6.5.0,<6.6.0"
 
 [[package]]
 name = "royalnet-telethon"
-version = "2.0.0"
+version = "2.1.0"
 description = "A Telethon-based frontend for the royalnet.engineer module."
 category = "main"
 optional = false
@@ -902,8 +902,8 @@ royalnet-console = [
     {file = "royalnet_console-2.0.4-py3-none-any.whl", hash = "sha256:b1e7be36f24e76c6eb1f298b5fbdd3902ae62d280ecac2b9d8afefeedf7d2b38"},
 ]
 royalnet-telethon = [
-    {file = "royalnet-telethon-2.0.0.tar.gz", hash = "sha256:aa914b68d0f1034cd1c3ab33317e1c4d7a0fdbee4ed62a6f6158982cff3930c7"},
-    {file = "royalnet_telethon-2.0.0-py3-none-any.whl", hash = "sha256:ef14bdbda096627409c2bf667aeecef76ae4d044ec8acb4e994d63c76f82bc90"},
+    {file = "royalnet-telethon-2.1.0.tar.gz", hash = "sha256:c0d6842106bd2ec963a64069c2be629fe9b722715da48ced06a14be177ed654d"},
+    {file = "royalnet_telethon-2.1.0-py3-none-any.whl", hash = "sha256:94bc518881607a5bdedef69e64b990e2de2a6fca09e9b185a96b1e89b44fa3fc"},
 ]
 royalspells = [
     {file = "royalspells-3.2.tar.gz", hash = "sha256:2bd4a9a66514532e35c02c3907425af48c7cb292364c4843c795719a82b25dfe"},
