@@ -11,9 +11,8 @@ async def whoami(*, _msg: engi.Message, _user: db.User, **__):
     Scopri con che RYGaccount sei loggato.
     """
 
-    # TODO: improve output
     if _user:
-        await _msg.reply(text=f"☀️ {_user.name}")
+        await _msg.reply(text=f"☀️ Sei loggato come \uE01B{_user.name}\uE00B!")
     else:
         await _msg.reply(text="☁️ Non hai effettuato il login.")
 

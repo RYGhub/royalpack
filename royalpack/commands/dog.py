@@ -187,7 +187,7 @@ async def dog_breedlist(*, _msg: engi.Message, **__):
     Elenca tutte le razze di dogghi disponibili! 🐶
     """
     msg = [
-        "🐶 Razze disponibili:",
+        "🐶 \uE01BRazze disponibili:\uE00B",
         ", ".join(_breeds),
     ]
 

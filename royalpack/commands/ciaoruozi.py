@@ -14,7 +14,7 @@ async def ciaoruozi(*, _msg: engi.Message, _imp, **__):
         sender: royalnet_telethon.bullet.contents.TelegramUser = await _msg.sender
         # noinspection PyProtectedMember
         if sender._user.id == 112437036:
-            await _msg.reply(text="👋 Ciao me!")
+            await _msg.reply(text="👋 Ciao \uE01Bme\uE00B!")
 
     await _msg.reply(text="👋 Ciao Ruozi!")
 

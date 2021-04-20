@@ -9,7 +9,7 @@ async def spell(*, _msg: engi.Message, spellname: str, **__):
     """
     s = royalspells.Spell(spellname)
 
-    rows: list[str] = [f"✨ {s.name}"]
+    rows: list[str] = [f"✨ \uE01B{s.name}\uE00B"]
 
     if s.damage_component:
         dmg: royalspells.DamageComponent = s.damage_component

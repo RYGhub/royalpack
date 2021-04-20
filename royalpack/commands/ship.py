@@ -45,7 +45,7 @@ async def ship(*, _msg: engi.Message, first: str, second: str, **__):
     # Send the message to the chat
     log.debug(f"Sending ship to the chat...")
     await _msg.reply(
-        text=f"💞 {first.capitalize()} + {second.capitalize()} = {combined.capitalize()}"
+        text=f"💞 {first.capitalize()} + {second.capitalize()} = \uE01B{combined.capitalize()}\uE00B"
     )
 
 

@@ -21,7 +21,7 @@ async def man(*, _msg: engi.Message, _router: engi.Router, commandname: str, **_
         pass
 
     msg = [
-        f"ℹ️ Manuale di {commandname}:",
+        f"ℹ️ Manuale di \uE011{commandname}\uE001:",
         f"{command.__doc__}",
     ]
 

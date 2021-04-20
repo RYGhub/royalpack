@@ -29,7 +29,7 @@ _fortunes = [
     "🤖 Oggi il Royal Bot ti dirà qualcosa di molto utile!",
     "🏠 Oggi qualcuno si autoinviterà a casa tua!",
     "📵 Oggi passerai una bella giornata tranquilla senza che nessuno ti chiami!",
-    "🕸 Oggi cadrai trappola di una ragnatela! O ti arriverà in faccia.",
+    "🕸 Oggi cadrai trappola di una ragnatela! \uE011O ti arriverà in faccia.\uE001",
     "🔮 Oggi chiederai a @royalgamesbot di dirti la tua /fortune!",
     "👽 Oggi incontrerai gli UFI!!!1!!uno!",
     "🦾 Oggi uno scienziato pazzo ti proporrà di sostituire il tuo braccio con un braccio-razzo meccanico!",

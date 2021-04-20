@@ -8,7 +8,7 @@ async def color(*, _msg: engi.Message, **__):
     """
 
     await _msg.reply(
-        text="I am sorry, unknown error occured during working with your request, Admin were notified"
+        text="\uE011I am sorry, unknown error occured during working with your request, Admin were notified\uE001"
     )
 
 

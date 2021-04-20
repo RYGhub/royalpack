@@ -144,7 +144,7 @@ async def prompt_login(channel: engi.Channel, verification_url: str, user_code: 
         text=f"🌍 Effettua il RYGlogin al seguente URL, poi premi Confirm:\n"
              f"{verification_url}\n"
              f"\n"
-             f"(Codice: {user_code})"
+             f"\uE011(Codice: {user_code})\uE001"
     )
 
 

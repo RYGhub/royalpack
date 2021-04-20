@@ -80,7 +80,7 @@ _emojis = {
 
 
 @engi.TeleportingConversation
-async def emojify(*, message: str, **__):
+async def emojify(*, _msg: engi.Message, message: str, **__):
     """
     Converti un messaggio in emoji.
     """
