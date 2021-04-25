@@ -14,8 +14,10 @@ lazy_session_class = royalnet.lazy.Lazy(lambda e: sqlalchemy.orm.sessionmaker(bi
 The uninitialized sqlalchemy session class.
 """
 
+SessionType = sqlalchemy.orm.Session
 
 __all__ = (
     "lazy_engine",
     "lazy_session_class",
+    "SessionType",
 )

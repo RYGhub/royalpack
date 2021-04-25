@@ -1,8 +1,9 @@
 from __future__ import annotations
+import typing as t
 import sqlalchemy as s
+import sqlalchemy.sql as ss
 import sqlalchemy.orm as so
 import sqlalchemy.ext.declarative as sed
-import sqlalchemy.ext.associationproxy as seap
 import sqlalchemy_utils as su
 import royalnet.alchemist as ra
 import colour
@@ -38,6 +39,9 @@ class User(Base, ra.ColRepr, ra.Updatable):
     title_fk = s.Column(su.UUIDType, s.ForeignKey("titles.uuid"))
     fiorygi = s.Column(s.Integer, nullable=False, default=0)
 
+    def __str__(self):
+        return self.name
+
 
 class UserAlias(Base, ra.ColRepr, ra.Updatable):
     """
@@ -48,7 +52,21 @@ class UserAlias(Base, ra.ColRepr, ra.Updatable):
     user_fk = s.Column(s.String, s.ForeignKey("users.sub"), primary_key=True)
     user = so.relationship("User", backref="aliases")
 
-    name = s.Column(s.String, nullable=False)
+    name = s.Column(s.String, nullable=False, primary_key=True)
+
+    @so.validates("name")
+    def convert_lower(self, key, value: str) -> str:
+        return value.lower()
+
+    @classmethod
+    def find(cls, session: so.Session, string: str) -> t.Optional[User]:
+        ua = session.execute(
+            ss.select(cls).where(cls.name == string)
+        ).scalar()
+        return ua.user if ua else None
+
+    def __str__(self):
+        return self.name
 
 
 class TelegramAccount(Base, ra.ColRepr, ra.Updatable):
@@ -80,6 +98,9 @@ class TelegramAccount(Base, ra.ColRepr, ra.Updatable):
         else:
             return f"[{self.name}](tg://user?id={self.tg_id})"
 
+    def __str__(self):
+        return self.name()
+
 
 class DiscordAccount(Base, ra.ColRepr, ra.Updatable):
     """
@@ -98,6 +119,9 @@ class DiscordAccount(Base, ra.ColRepr, ra.Updatable):
     def name(self) -> str:
         return f"{self.username}#{self.discriminator}"
 
+    def __str__(self):
+        return self.name()
+
 
 class SteamAccount(Base, ra.ColRepr, ra.Updatable):
     """
@@ -114,6 +138,9 @@ class SteamAccount(Base, ra.ColRepr, ra.Updatable):
 
     # TODO: make steamid return steam.steamid.SteamID objects
 
+    def __str__(self):
+        return self.persona_name
+
 
 class OsuAccount(Base, ra.ColRepr, ra.Updatable):
     """
@@ -127,6 +154,9 @@ class OsuAccount(Base, ra.ColRepr, ra.Updatable):
     id = s.Column(s.BigInteger, primary_key=True)
     username = s.Column(s.String)
     avatar_url = s.Column(su.URLType)
+
+    def __str__(self):
+        return self.username
 
 
 class LeagueAccount(Base, ra.ColRepr, ra.Updatable):
@@ -143,6 +173,9 @@ class LeagueAccount(Base, ra.ColRepr, ra.Updatable):
     summoner_name = s.Column(s.String, nullable=False)
     avatar_id = s.Column(s.Integer, nullable=False)
 
+    def __str__(self):
+        return self.summoner_name
+
 
 class Title(Base, ra.ColRepr, ra.Updatable):
     """
@@ -158,6 +191,9 @@ class Title(Base, ra.ColRepr, ra.Updatable):
     unlocked_description = s.Column(s.Text, nullable=False)
 
     unlocked_by = so.relationship("User", secondary=user_title_association, backref="unlocked_titles")
+
+    def __str__(self):
+        return self.name
 
 
 class DiarioGroup(Base, ra.ColRepr, ra.Updatable):
@@ -203,13 +239,14 @@ class Transaction(Base, ra.ColRepr, ra.Updatable):
     id = s.Column(s.Integer, primary_key=True)
 
     minus_fk = s.Column(s.String, s.ForeignKey("users.sub"))
-    minus = so.relationship("User", foreign_keys=(minus_fk,))
+    minus = so.relationship("User", foreign_keys=(minus_fk,), backref="transactions_minus")
 
     plus_fk = s.Column(s.String, s.ForeignKey("users.sub"))
-    plus = so.relationship("User", foreign_keys=(plus_fk,))
+    plus = so.relationship("User", foreign_keys=(plus_fk,), backref="transactions_plus")
 
     amount = s.Column(s.Integer, nullable=False)
     reason = s.Column(s.Text)
+    timestamp = s.Column(su.ArrowType)
 
 
 class Treasure(Base, ra.ColRepr, ra.Updatable):
@@ -222,9 +259,11 @@ class Treasure(Base, ra.ColRepr, ra.Updatable):
 
     creator_fk = s.Column(s.String, s.ForeignKey("users.sub"))
     creator = so.relationship("User", foreign_keys=(creator_fk,))
+    creation_time = s.Column(su.ArrowType, nullable=False)
 
     finder_fk = s.Column(s.String, s.ForeignKey("users.sub"))
     finder = so.relationship("User", foreign_keys=(finder_fk,))
+    find_time = s.Column(su.ArrowType, nullable=False)
 
     value = s.Column(s.Integer, nullable=False)
     message = s.Column(s.Text)

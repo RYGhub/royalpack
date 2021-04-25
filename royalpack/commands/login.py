@@ -66,6 +66,7 @@ async def login(*, _msg: engi.Message, _session: so.Session, _imp, **__):
         )
 
     user = await register_user_generic(session=_session, user_info=ui)
+    uas = await register_user_alias(session=_session, user_info=ui)
 
     log.debug(f"Committing session...")
     _session.commit()
@@ -246,7 +247,43 @@ async def register_user_generic(
         email=user_info['email'],
     )
     session.merge(user)
+
     return user
+
+
+async def register_user_alias(
+        session: so.Session,
+        user_info: dict[str, t.Any],
+):
+    """
+    .. todo:: Document this.
+    """
+
+    log.debug("Syncing user aliases...")
+
+    uas = [
+        db.UserAlias(
+            user_fk=user_info["sub"],
+            name=user_info["name"]
+        ),
+        db.UserAlias(
+            user_fk=user_info["sub"],
+            name=user_info["nickname"]
+        ),
+        db.UserAlias(
+            user_fk=user_info["sub"],
+            name=user_info["email"]
+        ),
+        db.UserAlias(
+            user_fk=user_info["sub"],
+            name=user_info["sub"]
+        ),
+    ]
+
+    for ua in uas:
+        session.merge(ua)
+
+    return uas
 
 
 async def register_user_telethon(
