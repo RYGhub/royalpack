@@ -15,3 +15,4 @@ from .man import *
 from .login import *
 from .whoami import *
 from .fiorygi import *
+from .version import *
