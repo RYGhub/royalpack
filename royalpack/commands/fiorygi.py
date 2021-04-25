@@ -1,8 +1,10 @@
+import royalnet.royaltyping as t
 import royalnet.engineer as engi
 import royalpack.database as db
 import royalpack.bolts as rb
 import sqlalchemy.sql as ss
 import functools
+import arrow
 
 
 @engi.use_database(db.lazy_session_class)
@@ -197,6 +199,126 @@ async def fiorygi_magick(
     await _msg.reply(text=f"🏦 Hai modificato il portafoglio di {_target} di \uE01Bƒ {amount}\uE00B.")
 
 
+@engi.use_database(db.lazy_session_class)
+@rb.use_ryglogin(allow_anonymous=False)
+@engi.TeleportingConversation
+async def fiorygi_dig(
+        *,
+        _user: db.User,
+        _session: db.SessionType,
+        _msg: engi.Message,
+        slug: str,
+        **__
+):
+    """
+    Cerca un tesoro con un dato nome.
+    """
+
+    treasure: t.Optional[db.Treasure] = _session.execute(
+        ss.select(
+            db.Treasure
+        ).where(
+            db.Treasure.slug == slug
+        )
+    ).scalar()
+
+    if treasure is None:
+        await _msg.reply(text=f"🏝 Non hai trovato nulla.")
+        return
+
+    if treasure.finder is not None:
+        await _msg.reply(text=f"🏝 Quel tesoro è già stato trovato da {treasure.finder}.")
+        return
+
+    treasure.finder = _user
+    treasure.find_time = arrow.now()
+
+    trans = db.Transaction(
+        minus=None,
+        plus=_user,
+        amount=treasure.value,
+        reason=f"""🏖 Ritrovamento del tesoro `{treasure.slug}`""",
+    )
+    _session.add(trans)
+    _user.fiorygi += treasure.value
+
+    _session.commit()
+
+    if treasure.message:
+        await _msg.reply(text=f'🏖 Hai trovato un tesoro nascosto dal valore di \uE01Bƒ {treasure.value}\uE00B '
+                              f'con il seguente messaggio:\n\n"{treasure.message}"')
+    else:
+        await _msg.reply(text=f"🏖 Hai trovato un tesoro nascosto dal valore di \uE01Bƒ {treasure.value}\uE00B!")
+
+
+@engi.use_database(db.lazy_session_class)
+@rb.use_ryglogin(allow_anonymous=False)
+@engi.TeleportingConversation
+async def fiorygi_bury(
+        *,
+        _user: db.User,
+        _session: db.SessionType,
+        _msg: engi.Message,
+        slug: str,
+        value: int,
+        message: t.Optional[str],
+        **__
+):
+    """
+    Nascondi un tesoro con un dato nome.
+    """
+
+    treasure: t.Optional[db.Treasure] = _session.execute(
+        ss.select(
+            db.Treasure
+        ).where(
+            db.Treasure.slug == slug
+        )
+    ).scalar()
+
+    if treasure is not None:
+        if treasure.finder is not None:
+            await _msg.reply(text=f"🏝 Un tesoro con quel nome è già stato trovato da {treasure.finder}.")
+        else:
+            await _msg.reply(text=f"🏖 Un tesoro con quel nome esiste già, "
+                                  f"\uE01Bma non è ancora stato trovato da nessuno\uE00B!")
+        return
+
+    if value <= 0:
+        await _msg.reply(text=f"⚠️ Il valore del tesoro deve essere intera positiva.")
+        return
+
+    if _user.fiorygi < value:
+        await _msg.reply(text=f"⚠️ Non hai abbastanza fiorygi da nascondere.")
+        return
+
+    treasure = db.Treasure(
+        slug=slug,
+        creator=_user,
+        creation_time=arrow.now(),
+        value=value,
+        message=message,
+    )
+    _session.add(treasure)
+
+    trans = db.Transaction(
+        minus=_user,
+        plus=None,
+        amount=treasure.value,
+        reason=f"""🏖 Occultamento di un tesoro""",
+    )
+    _session.add(trans)
+    _user.fiorygi -= value
+
+    _session.commit()
+
+    if treasure.message:
+        await _msg.reply(text=f'🏖 Hai nascosto un tesoro dal valore di \uE01Bƒ {treasure.value}\uE00B '
+                              f'con il seguente messaggio:\n"{treasure.message}"')
+    else:
+        await _msg.reply(text=f'🏖 Hai nascosto un tesoro dal valore di \uE01Bƒ {treasure.value}\uE00B.')
+
+
 __all__ = (
     "fiorygi_balance_self",
     "fiorygi_balance_other",
@@ -204,4 +326,6 @@ __all__ = (
     "fiorygi_magick",
     "fiorygi_transactions_self",
     "fiorygi_transactions_other",
+    "fiorygi_dig",
+    "fiorygi_bury",
 )

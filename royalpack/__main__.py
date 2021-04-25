@@ -63,6 +63,8 @@ register_telegram(commands.fiorygi_give, ["give"], r"(?P<target>\S+)\s+(?P<amoun
 register_telegram(commands.fiorygi_magick, ["magick"], r"(?P<target>\S+)\s+(?P<amount>[0-9]+)\s+(?P<reason>.+)")
 register_telegram(commands.fiorygi_transactions_self, ["transactions"])
 register_telegram(commands.fiorygi_transactions_other, ["transactions"], r"(?P<target>\S+)")
+register_telegram(commands.fiorygi_dig, ["dig"], r"(?P<slug>[a-z0-9-]+)")
+register_telegram(commands.fiorygi_bury, ["bury"], r"(?P<slug>[a-z0-9-]+)\s+(?P<value>[0-9]+)(?:\s+(?P<message>.+))?")
 
 
 pda.implementations["telethon.1"].register_conversation(r)

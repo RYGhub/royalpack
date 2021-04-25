@@ -263,7 +263,7 @@ class Treasure(Base, ra.ColRepr, ra.Updatable):
 
     finder_fk = s.Column(s.String, s.ForeignKey("users.sub"))
     finder = so.relationship("User", foreign_keys=(finder_fk,))
-    find_time = s.Column(su.ArrowType, nullable=False)
+    find_time = s.Column(su.ArrowType)
 
     value = s.Column(s.Integer, nullable=False)
     message = s.Column(s.Text)
