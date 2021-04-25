@@ -32,7 +32,7 @@ def register_telegram(conv, names, syntax=None):
     name_regex = rf"(?:{'|'.join(names)})"
     bot_regex = rf"(?:@{config['telegram.bot.username']})?"
     if syntax:
-        syntax_regex = f" {syntax}"
+        syntax_regex = rf"\s+{syntax}"
     else:
         syntax_regex = ""
     regex = rf"^/{name_regex}{bot_regex}{syntax_regex}$"
