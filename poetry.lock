@@ -138,6 +138,21 @@ python-versions = "*"
 test = ["nose"]
 
 [[package]]
+name = "discord.py"
+version = "1.7.1"
+description = "A Python wrapper for the Discord API"
+category = "main"
+optional = false
+python-versions = ">=3.5.3"
+
+[package.dependencies]
+aiohttp = ">=3.6.0,<3.8.0"
+
+[package.extras]
+docs = ["sphinx (==3.0.3)", "sphinxcontrib-trio (==1.1.2)", "sphinxcontrib-websupport"]
+voice = ["PyNaCl (>=1.3.0,<1.5)"]
+
+[[package]]
 name = "greenlet"
 version = "1.0.0"
 description = "Lightweight in-process concurrent programming"
@@ -303,7 +318,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
 
 [[package]]
 name = "royalnet"
-version = "6.5.4"
+version = "6.5.5"
 description = "A multipurpose bot framework"
 category = "main"
 optional = false
@@ -327,6 +342,19 @@ python-versions = ">=3.8,<4.0"
 click = ">=7.1.2,<8.0.0"
 colorama = ">=0.4.4,<0.5.0"
 psutil = ">=5.8.0,<6.0.0"
+royalnet = ">=6.5.0,<6.6.0"
+
+[[package]]
+name = "royalnet-discordpy"
+version = "0.5.0"
+description = "A Discord.py-based frontend for the royalnet.engineer module."
+category = "main"
+optional = false
+python-versions = ">=3.8,<4.0"
+
+[package.dependencies]
+click = ">=7.1.2,<8.0.0"
+"discord.py" = ">=1.7.1,<2.0.0"
 royalnet = ">=6.5.0,<6.6.0"
 
 [[package]]
@@ -512,7 +540,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "331ed6c6b9a070807ccc984fcda1e4d8c08da999f49a96195a7f3c25356fbd73"
+content-hash = "80d6a7f8321f83278349ca32971d62eb7c4a90b9391d224140940045b390f0d9"
 
 [metadata.files]
 aiohttp = [
@@ -601,6 +629,10 @@ coloredlogs = [
 colour = [
     {file = "colour-0.1.5-py2.py3-none-any.whl", hash = "sha256:33f6db9d564fadc16e59921a56999b79571160ce09916303d35346dddc17978c"},
     {file = "colour-0.1.5.tar.gz", hash = "sha256:af20120fefd2afede8b001fbef2ea9da70ad7d49fafdb6489025dae8745c3aee"},
+]
+"discord.py" = [
+    {file = "discord.py-1.7.1-py3-none-any.whl", hash = "sha256:399b80d576a63fa901300e80080568e1d9cd9c21260ca622fd7145c0009278fa"},
+    {file = "discord.py-1.7.1.tar.gz", hash = "sha256:82bc5e6325ab7557db9c466f638c98e18be03c330f56ad9bf4c18bdcf19faf55"},
 ]
 greenlet = [
     {file = "greenlet-1.0.0-cp27-cp27m-macosx_10_14_x86_64.whl", hash = "sha256:1d1d4473ecb1c1d31ce8fd8d91e4da1b1f64d425c1dc965edc4ed2a63cfa67b2"},
@@ -894,12 +926,16 @@ requests = [
     {file = "requests-2.25.1.tar.gz", hash = "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"},
 ]
 royalnet = [
-    {file = "royalnet-6.5.4-py3-none-any.whl", hash = "sha256:68d30fdd00653a5e79eab2b22a8c5bb16103e08e8674ec8f4b13ff1bdf1d33d2"},
-    {file = "royalnet-6.5.4.tar.gz", hash = "sha256:fbab17b911c2ee200c0f7bfd5d2bcc4d1d3f9771b41ab64a848a08cdd464e3d8"},
+    {file = "royalnet-6.5.5-py3-none-any.whl", hash = "sha256:a204e48f024504a89cd81cefe0dd798f67c89d942a045d2e85552d42f7f362f8"},
+    {file = "royalnet-6.5.5.tar.gz", hash = "sha256:4f9f59d8a1360ee1296c8c8a877e74139996e88ac05001c0f190fdac239991d6"},
 ]
 royalnet-console = [
     {file = "royalnet-console-2.0.4.tar.gz", hash = "sha256:049948a558a2ee7359f808cf61faef08789ce9e3969a0dfb94e65bd912ffcffc"},
     {file = "royalnet_console-2.0.4-py3-none-any.whl", hash = "sha256:b1e7be36f24e76c6eb1f298b5fbdd3902ae62d280ecac2b9d8afefeedf7d2b38"},
+]
+royalnet-discordpy = [
+    {file = "royalnet-discordpy-0.5.0.tar.gz", hash = "sha256:f5b3281e0034265823d9bd9d1033cdfecef7bfadbc3ff618194ec33f063ea8ef"},
+    {file = "royalnet_discordpy-0.5.0-py3-none-any.whl", hash = "sha256:4985a0ac31cb51634f3786cce396daebea492cc74f9da183c9541fe99eeb8e25"},
 ]
 royalnet-telethon = [
     {file = "royalnet-telethon-2.1.1.tar.gz", hash = "sha256:be293e236e4f71e12f3fe7c761155fcba5399527f45dfd65e102403032ec55ce"},

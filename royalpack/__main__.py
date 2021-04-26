@@ -2,6 +2,7 @@ import royalnet.engineer as engi
 from royalnet.engineer import router
 import royalnet.scrolls as sc
 import royalnet_telethon as rt
+import royalnet_discordpy as rd
 import pathlib
 import re
 import coloredlogs
@@ -22,7 +23,11 @@ pda = engi.PDA(implementations=[
         tg_api_hash=config["telegram.api.hash"],
         bot_username=config["telegram.bot.username"],
         bot_token=config["telegram.bot.token"],
-    )
+    ),
+    rd.DiscordpyPDAImplementation(
+        name="2",
+        bot_token=config["discord.bot.token"],
+    ),
 ])
 
 r = router.Router()
@@ -36,6 +41,17 @@ def register_telegram(conv, names, syntax=None):
     else:
         syntax_regex = ""
     regex = rf"^/{name_regex}{bot_regex}{syntax_regex}$"
+    r.register_conversation(conv, names, [re.compile(regex)])
+
+
+def register_discord(conv, names, syntax=None):
+    name_regex = rf"(?:{'|'.join(names)})"
+    if syntax:
+        syntax_regex = rf"\s+{syntax}"
+    else:
+        syntax_regex = ""
+    prefix_regex = rf"{config['discord.bot.prefix']}"
+    regex = rf"^{prefix_regex}{name_regex}{syntax_regex}$"
     r.register_conversation(conv, names, [re.compile(regex)])
 
 
@@ -67,8 +83,11 @@ register_telegram(commands.fiorygi_dig, ["dig"], r"(?P<slug>[a-z0-9-]+)")
 register_telegram(commands.fiorygi_bury, ["bury"], r"(?P<slug>[a-z0-9-]+)\s+(?P<value>[0-9]+)(?:\s+(?P<message>.+))?")
 register_telegram(commands.version, ["version"])
 
+register_discord(commands.ping, ["ping"])
+
 
 pda.implementations["telethon.1"].register_conversation(r)
+pda.implementations["discordpy.2"].register_conversation(r)
 
 
 pda.run()
