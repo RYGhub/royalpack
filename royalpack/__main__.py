@@ -1,3 +1,4 @@
+import discord
 import royalnet.engineer as engi
 import royalnet.scrolls as sc
 import royalnet_telethon as rt
@@ -26,6 +27,7 @@ pda = engi.PDA(implementations=[
     rd.DiscordpyPDAImplementation(
         name="2",
         bot_token=config["discord.bot.token"],
+        intents=discord.Intents.all(),
     ),
 ])
 
@@ -81,6 +83,7 @@ register_telegram(tg_router, commands.fiorygi_transactions_other, ["transactions
 register_telegram(tg_router, commands.fiorygi_dig, ["dig"], r"(?P<slug>[a-z0-9-]+)")
 register_telegram(tg_router, commands.fiorygi_bury, ["bury"], r"(?P<slug>[a-z0-9-]+)\s+(?P<value>[0-9]+)(?:\s+(?P<message>.+))?")
 register_telegram(tg_router, commands.version, ["version"])
+register_telegram(tg_router, commands.cv, ["cv"])
 
 ds_router = engi.Router()
 
