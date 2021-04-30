@@ -8,6 +8,7 @@ import functools
 import logging
 
 import royalnet.engineer as engi
+import royalnet_discordpy
 import royalnet_telethon
 import sqlalchemy.orm as so
 import sqlalchemy.sql as ss
@@ -38,6 +39,13 @@ def use_ryglogin(allow_anonymous=False):
                 supported = True
                 account = _session.execute(
                     ss.select(db.TelegramAccount).where(db.TelegramAccount.id == _sender._user.id)
+                ).scalar()
+
+            elif isinstance(_imp, royalnet_discordpy.DiscordpyPDAImplementation):
+                _sender = await _msg.sender
+                supported = True
+                account = _session.execute(
+                    ss.select(db.DiscordAccount).where(db.DiscordAccount.id == _sender._user.id)
                 ).scalar()
 
             else:
