@@ -1,7 +1,9 @@
 import royalnet.engineer as engi
 import royalspells
+import royalpack.bolts as rb
 
 
+@rb.capture_errors
 @engi.TeleportingConversation
 async def spell(*, _msg: engi.Message, spellname: str, **__):
     """

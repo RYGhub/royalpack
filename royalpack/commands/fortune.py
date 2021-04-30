@@ -1,6 +1,7 @@
 import royalnet.engineer as engi
 import random
 import datetime
+import royalpack.bolts as rb
 
 
 # Tutte le fortunes qui devono essere positive :)
@@ -56,6 +57,7 @@ _fortunes = [
 ]
 
 
+@rb.capture_errors
 @engi.TeleportingConversation
 async def fortune(*, _msg: engi.Message, **__):
     """

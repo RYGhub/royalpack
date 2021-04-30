@@ -1,8 +1,10 @@
 import royalnet.engineer as engi
 import royalnet_telethon as rt
 import pkg_resources
+import royalpack.bolts as rb
 
 
+@rb.capture_errors
 @engi.TeleportingConversation
 async def version(*, _imp: engi.PDAImplementation, _msg: engi.Message, **__):
     """

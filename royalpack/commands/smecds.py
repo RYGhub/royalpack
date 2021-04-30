@@ -1,5 +1,6 @@
 import royalnet.engineer as engi
 import random
+import royalpack.bolts as rb
 
 
 _ds_list = ["della secca", "del seccatore", "del secchiello", "del secchio", "del secchione", "del secondino",
@@ -54,6 +55,7 @@ _ds_list = ["della secca", "del seccatore", "del secchiello", "del secchio", "de
             "della Stampante"]
 
 
+@rb.capture_errors
 @engi.TeleportingConversation
 async def smecds(*, _msg: engi.Message, **__):
     """

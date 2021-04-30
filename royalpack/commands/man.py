@@ -1,6 +1,8 @@
 import royalnet.engineer as engi
+import royalpack.bolts as rb
 
 
+@rb.capture_errors
 @engi.TeleportingConversation
 async def man(*, _msg: engi.Message, _router: engi.Router, commandname: str, **__):
     """

@@ -7,6 +7,7 @@ import functools
 import arrow
 
 
+@rb.capture_errors
 @engi.use_database(db.lazy_session_class)
 @rb.use_ryglogin(allow_anonymous=False)
 @engi.TeleportingConversation
@@ -18,6 +19,7 @@ async def fiorygi_balance_self(*, _user: db.User, _msg: engi.Message, **__):
     await _msg.reply(text=f"💰 Attualmente, possiedi \uE01Bƒ {_user.fiorygi}\uE00B.")
 
 
+@rb.capture_errors
 @engi.use_database(db.lazy_session_class)
 @rb.with_target()
 @engi.TeleportingConversation
@@ -51,6 +53,7 @@ def render(transaction: db.Transaction, user: db.User):
     return " - ".join(row)
 
 
+@rb.capture_errors
 @engi.use_database(db.lazy_session_class)
 @rb.use_ryglogin(allow_anonymous=False)
 @engi.TeleportingConversation
@@ -79,6 +82,7 @@ async def fiorygi_transactions_self(*, _session: db.SessionType, _user: db.User,
     await _msg.reply(text="\n\n".join(msg))
 
 
+@rb.capture_errors
 @engi.use_database(db.lazy_session_class)
 @rb.with_target()
 @engi.TeleportingConversation
@@ -107,6 +111,7 @@ async def fiorygi_transactions_other(*, _session: db.SessionType, _target: db.Us
     await _msg.reply(text="\n\n".join(msg))
 
 
+@rb.capture_errors
 @engi.use_database(db.lazy_session_class)
 @rb.use_ryglogin(allow_anonymous=False)
 @rb.with_target()
@@ -153,6 +158,7 @@ async def fiorygi_give(
     await _msg.reply(text=f"💸 Hai trasferito \uE01Bƒ {amount}\uE00B a {_target}.")
 
 
+@rb.capture_errors
 @engi.use_database(db.lazy_session_class)
 @rb.use_ryglogin(allow_anonymous=False)
 @rb.with_target()
@@ -199,6 +205,7 @@ async def fiorygi_magick(
     await _msg.reply(text=f"🏦 Hai modificato il portafoglio di {_target} di \uE01Bƒ {amount}\uE00B.")
 
 
+@rb.capture_errors
 @engi.use_database(db.lazy_session_class)
 @rb.use_ryglogin(allow_anonymous=False)
 @engi.TeleportingConversation
@@ -251,6 +258,7 @@ async def fiorygi_dig(
         await _msg.reply(text=f"🏖 Hai trovato un tesoro nascosto dal valore di \uE01Bƒ {treasure.value}\uE00B!")
 
 
+@rb.capture_errors
 @engi.use_database(db.lazy_session_class)
 @rb.use_ryglogin(allow_anonymous=False)
 @engi.TeleportingConversation

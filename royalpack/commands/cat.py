@@ -3,10 +3,12 @@ import logging
 
 import aiohttp
 import royalnet.engineer as engi
+import royalpack.bolts as rb
 
 log = logging.getLogger(__name__)
 
 
+@rb.capture_errors
 @engi.TeleportingConversation
 async def cat(*, _msg: engi.Message, **__):
     """

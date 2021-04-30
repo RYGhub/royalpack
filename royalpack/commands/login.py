@@ -6,6 +6,7 @@ import royalpack.database as db
 import royalpack.config as cfg
 import royalnet_telethon.bullet.contents
 import royalnet_discordpy
+import royalpack.bolts as rb
 import aiohttp
 import asyncio
 import logging
@@ -15,9 +16,7 @@ import async_timeout
 log = logging.getLogger(__name__)
 
 
-# FIXME: Properly handle errors in this function!
-
-
+@rb.capture_errors
 @engi.use_database(db.lazy_session_class)
 @engi.TeleportingConversation
 async def login(*, _msg: engi.Message, _session: so.Session, _imp, **__):

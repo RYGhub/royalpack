@@ -1,4 +1,5 @@
 import royalnet.engineer as engi
+import royalpack.bolts as rb
 import random
 
 
@@ -79,6 +80,7 @@ _emojis = {
 }
 
 
+@rb.capture_errors
 @engi.TeleportingConversation
 async def emojify(*, _msg: engi.Message, message: str, **__):
     """

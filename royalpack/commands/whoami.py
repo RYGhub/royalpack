@@ -3,6 +3,7 @@ import royalpack.database as db
 import royalpack.bolts as rb
 
 
+@rb.capture_errors
 @engi.use_database(db.lazy_session_class)
 @rb.use_ryglogin(allow_anonymous=True)
 @engi.TeleportingConversation

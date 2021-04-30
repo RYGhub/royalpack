@@ -1,11 +1,13 @@
 import royalnet.royaltyping as t
 import royalnet.engineer as engi
 import royalnet_discordpy as rd
+import royalpack.bolts as rb
 import discord
 import discord.channel
 import itertools
 
 
+@rb.capture_errors
 @engi.TeleportingConversation
 async def cv(*, _msg: engi.Message, _pda: engi.PDA, **__):
     """

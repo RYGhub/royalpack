@@ -1,4 +1,5 @@
 import discord
+import pkg_resources
 import royalnet.engineer as engi
 import royalnet.scrolls as sc
 import royalnet_telethon as rt
@@ -6,12 +7,35 @@ import royalnet_discordpy as rd
 import pathlib
 import re
 import coloredlogs
+import sentry_sdk
+import sentry_sdk.integrations.atexit
+import sentry_sdk.integrations.dedupe
+import sentry_sdk.integrations.modules
+import sentry_sdk.integrations.threading
+import logging
 
 from . import commands
 from .database import engine, base
 
-coloredlogs.install(level="DEBUG", isatty=True)
+coloredlogs.install(level="DEBUG" if __debug__ else "INFO", isatty=True)
 config = sc.Scroll.from_file(namespace="ROYALPACK", file_path=pathlib.Path("royalpack.cfg.toml"))
+
+if dsn := config.get("sentry.dsn", None):
+    logging.info("Enabling Sentry...")
+    sentry_sdk.init(
+        dsn=dsn,
+        debug=__debug__,
+        release=pkg_resources.get_distribution("royalpack").version,
+        environment="Development" if __debug__ else "Production",
+        default_integrations=False,
+        integrations=[
+            sentry_sdk.integrations.atexit.AtexitIntegration(),
+            sentry_sdk.integrations.dedupe.DedupeIntegration(),
+            sentry_sdk.integrations.modules.ModulesIntegration(),
+            sentry_sdk.integrations.threading.ThreadingIntegration(),
+        ],
+        traces_sample_rate=1.0
+    )
 
 engine_ = engine.lazy_engine.evaluate()
 base.Base.metadata.create_all(engine_)

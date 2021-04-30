@@ -30,6 +30,7 @@ colour = "^0.1.5"
 royalspells = "^3.2"
 async-timeout = "^3.0.1"
 royalnet-discordpy = "~0.5.8"
+sentry-sdk = "^1.0.0"
 
 [tool.poetry.dev-dependencies]
 

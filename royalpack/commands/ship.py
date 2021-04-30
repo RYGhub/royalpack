@@ -1,11 +1,13 @@
 import logging
 import re
+import royalpack.bolts as rb
 
 import royalnet.engineer as engi
 
 log = logging.getLogger(__name__)
 
 
+@rb.capture_errors
 @engi.TeleportingConversation
 async def ship(*, _msg: engi.Message, first: str, second: str, **__):
     """

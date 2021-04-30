@@ -1,9 +1,10 @@
 import royalnet.engineer as engi
-import royalnet.engineer.conversation as c
 import royalnet_telethon
 import royalnet_telethon.bullet.contents
+import royalpack.bolts as rb
 
 
+@rb.capture_errors
 @engi.TeleportingConversation
 async def ciaoruozi(*, _msg: engi.Message, _imp, **__):
     """

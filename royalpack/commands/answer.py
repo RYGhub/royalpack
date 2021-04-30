@@ -1,5 +1,5 @@
 import royalnet.engineer as engi
-import royalnet.engineer.conversation as c
+import royalpack.bolts as rb
 import datetime
 import random
 
@@ -73,6 +73,7 @@ ANSWERS = [
 ]
 
 
+@rb.capture_errors
 @engi.TeleportingConversation
 async def answer(*, _msg: engi.Message, **__):
     """

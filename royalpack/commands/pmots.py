@@ -1,6 +1,8 @@
 import royalnet.engineer as engi
+import royalpack.bolts as rb
 
 
+@rb.capture_errors
 @engi.TeleportingConversation
 async def pmots(*, _msg: engi.Message, **__):
     """
