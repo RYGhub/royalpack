@@ -1,5 +1,6 @@
 import royalnet.engineer as engi
 import random
+import datetime
 
 
 # Tutte le fortunes qui devono essere positive :)
@@ -63,7 +64,7 @@ async def fortune(*, _msg: engi.Message, **__):
 
     author = await _msg.sender
 
-    r = random.Random(x=author)
+    r = random.Random(x=hash(author) + hash(datetime.date.today()))
     message = r.sample(_fortunes, 1)[0]
 
     await _msg.reply(text=message)
