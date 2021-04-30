@@ -88,13 +88,13 @@ async def login(*, _msg: engi.Message, _session: so.Session, _imp, **__):
 
     elif isinstance(_imp, royalnet_discordpy.DiscordpyPDAImplementation):
         sender = await _msg.sender
-        tg = await register_user_discord(session=_session, user_info=ui, discord_user=sender._user)
+        ds = await register_user_discord(session=_session, user_info=ui, discord_user=sender._user)
 
         log.debug(f"Committing session...")
         _session.commit()
 
         log.debug(f"Done, notifying the user...")
-        await private.send_message(text=f"↔️ Sincronizzazione con Telegram riuscita! Sei loggato come {tg.mention()}!")
+        await private.send_message(text=f"↔️ Sincronizzazione con Discord riuscita! Sei loggato come <@{ds.id}>!")
 
 
 async def enforce_private_message(msg: engi.Message) -> engi.Channel:
