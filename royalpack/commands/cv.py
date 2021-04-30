@@ -35,6 +35,9 @@ async def cv(*, _msg: engi.Message, _pda: engi.PDA, **__):
         message.append("")
         message.append("")
 
+    if len(message) == 0:
+        message.append("☁️ \uE011Non c'è nessuno in chat vocale.\uE001")
+
     await _msg.reply(text="\n".join(message))
 
 
