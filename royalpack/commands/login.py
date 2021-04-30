@@ -1,9 +1,11 @@
+import discord
 import royalnet.royaltyping as t
 import royalnet.engineer as engi
 import sqlalchemy.orm as so
 import royalpack.database as db
 import royalpack.config as cfg
 import royalnet_telethon.bullet.contents
+import royalnet_discordpy
 import aiohttp
 import asyncio
 import logging
@@ -77,6 +79,16 @@ async def login(*, _msg: engi.Message, _session: so.Session, _imp, **__):
     if isinstance(_imp, royalnet_telethon.TelethonPDAImplementation):
         sender = await _msg.sender
         tg = await register_user_telethon(session=_session, user_info=ui, telethon_user=sender._user)
+
+        log.debug(f"Committing session...")
+        _session.commit()
+
+        log.debug(f"Done, notifying the user...")
+        await private.send_message(text=f"↔️ Sincronizzazione con Telegram riuscita! Sei loggato come {tg.mention()}!")
+
+    elif isinstance(_imp, royalnet_discordpy.DiscordpyPDAImplementation):
+        sender = await _msg.sender
+        tg = await register_user_discord(session=_session, user_info=ui, discord_user=sender._user)
 
         log.debug(f"Committing session...")
         _session.commit()
@@ -312,6 +324,33 @@ async def register_user_telethon(
     )
     session.merge(tg)
     return tg
+
+
+async def register_user_discord(
+        session: so.Session,
+        user_info: dict[str, t.Any],
+        discord_user: discord.User,
+) -> db.DiscordAccount:
+    """
+    Sync an user's Discord account via a Discord.py message.
+
+    :param session: The :class:`~.so.Session` to use.
+    :param user_info: The user_info obtained by the Identity Provider.
+    :param discord_user: The Discord.py user to base the user data on.
+    :return: The created/updated :class:`~.db.DiscordAccount`
+    """
+
+    log.debug("Syncing telethon user...")
+
+    ds = db.DiscordAccount(
+        user_fk=user_info["sub"],
+        id=discord_user.id,
+        username=discord_user.name,
+        discriminator=discord_user.discriminator,
+        avatar_url=str(discord_user.avatar_url),
+    )
+    session.merge(ds)
+    return ds
 
 
 __all__ = ("login",)
