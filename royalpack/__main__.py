@@ -108,6 +108,7 @@ register_telegram(tg_router, commands.fiorygi_dig, ["dig"], r"(?P<slug>[a-z0-9-]
 register_telegram(tg_router, commands.fiorygi_bury, ["bury"], r"(?P<slug>[a-z0-9-]+)\s+(?P<value>[0-9]+)(?:\s+(?P<message>.+))?")
 register_telegram(tg_router, commands.version, ["version"])
 register_telegram(tg_router, commands.cv, ["cv", "civù"])
+register_telegram(tg_router, commands.rocoinflip, ["rocoinflip"], r'"(?P<teama>[^"]+)"\s+"(?P<teamb>[^"]+)"')
 
 ds_router = engi.Router()
 
@@ -138,6 +139,7 @@ register_discord(ds_router, commands.fiorygi_transactions_other, ["transactions"
 register_discord(ds_router, commands.fiorygi_dig, ["dig"], r"(?P<slug>[a-z0-9-]+)")
 register_discord(ds_router, commands.fiorygi_bury, ["bury"], r"(?P<slug>[a-z0-9-]+)\s+(?P<value>[0-9]+)(?:\s+(?P<message>.+))?")
 register_discord(ds_router, commands.version, ["version"])
+register_discord(ds_router, commands.rocoinflip, ["rocoinflip"], r'"(?P<teama>[^"]+)"\s+"(?P<teamb>[^"]+)"')
 
 pda.implementations["telethon.1"].register_conversation(tg_router)
 pda.implementations["discordpy.2"].register_conversation(ds_router)
