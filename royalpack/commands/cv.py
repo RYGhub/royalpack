@@ -136,7 +136,6 @@ def build_activity_string(activity: discord.Activity) -> str:
         text = f"\uE011{activity.name}\uE001"
     elif activity.type == discord.ActivityType.streaming:
         text = f"{activity.url}"
-        breakpoint()
     else:
         text = f"{activity.name}"
 
