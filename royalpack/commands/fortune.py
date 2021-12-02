@@ -57,7 +57,7 @@ _fortunes = [
     "🔮 Oggi pondererai intensamente la tua sfera!",
     "🗳️ Oggi ci saranno le elezioni per un nuovo partito sul tuo pianeta!",
     "🥓 Oggi avrai bacon illimitato e niente videogiochi!",
-    "🎮 Oggi avrai videogiochi, niente videogiochi e videogiochi illimitati!",
+    "🎮 Oggi avrai videogiochi, videogiochi illimitati e niente videogiochi!",
     "🔫 Oggi troverai una pistola pearlescent!",
     "🤖 Oggi ti chiederanno di pilotare un robot gigante!",
     "💣 Oggi dovrai continuare a parlare, o esploderai!",
