@@ -54,6 +54,20 @@ _fortunes = [
     "🦴 Oggi scoprirai di avere uno scheletro wholesome all'interno di te!",
     "💳 Oggi riuscirai a fornire i tre numerini della tua carta di credito a John Wick!",
     "🤔 Oggi smetterai finalmente di essere sus, in quanto sarai confermato dal villaggio!",
+    "🔮 Oggi pondererai intensamente la tua sfera!",
+    "🗳️ Oggi ci saranno le elezioni per un nuovo partito sul tuo pianeta!",
+    "🥓 Oggi avrai bacon illimitato e niente videogiochi!",
+    "🎮 Oggi avrai videogiochi, videogiochi illimitati e niente videogiochi!",
+    "🔫 Oggi troverai una pistola pearlescent!",
+    "🤖 Oggi ti chiederanno di pilotare un robot gigante!",
+    "💣 Oggi dovrai continuare a parlare, o esploderai!",
+    "🤌 Oggi ti sentirai particolarmente italiano, e gesticolerai più del solito!",
+    "🪵 Oggi ti servirà legname!",
+    "☄️ Oggi avvisterai una cometa, rischiando di inciampare!",
+    "🥅 Oggi farai goal!",
+    "🧿 Oggi sarai protetto dagli spiriti maligni che attraversano le pareti!",
+    "💰 Oggi è una buona giornata per il capitalismo!",
+    "⚒️ Oggi è una buona giornata per il comunismo!",
 ]
 
 
