@@ -3,7 +3,6 @@ import royalpack.bolts as rb
 import datetime
 import random
 
-
 WHO = [
     # A chi sarà diretto l'insulto
     "Dio",
@@ -65,7 +64,7 @@ async def diobot(*, _msg: engi.Message, **__):
     h = hash(datetime.datetime.now())
 
     message = random.Random(x=h).sample(WHO, 1)[0]
-    for i in range (random.randint(1,5)):
+    for i in range(random.randint(1, 5)):
         message += " "
         message += random.Random(x=h).sample(WHAT, 1)[0]
     message += "!"
