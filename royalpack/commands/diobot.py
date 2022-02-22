@@ -62,8 +62,6 @@ async def diobot(*, _msg: engi.Message, **__):
     Il bot è molto arrabbiato e vuole creare bestemmie complesse!
     """
 
-    author = await _msg.sender
-
     h = hash(datetime.datetime.now())
 
     message = random.Random(x=h).sample(WHO, 1)[0]
