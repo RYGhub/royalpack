@@ -19,3 +19,4 @@ from .version import *
 from .cv import *
 from .rocoinflip import *
 from .hack import *
+from .diobot import *
