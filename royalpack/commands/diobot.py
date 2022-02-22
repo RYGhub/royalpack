@@ -57,7 +57,7 @@ WHAT = [
 
 @rb.capture_errors
 @engi.TeleportingConversation
-async def phrase(*, _msg: engi.Message, **__):
+async def diobot(*, _msg: engi.Message, **__):
     """
     Il bot è molto arrabbiato e vuole creare bestemmie complesse!
     """
@@ -77,5 +77,5 @@ async def phrase(*, _msg: engi.Message, **__):
 
 # Objects exported by this module
 __all__ = (
-    "phrase",
+    "diobot",
 )
