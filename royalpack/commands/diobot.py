@@ -31,7 +31,6 @@ WHAT = [
     "boia",
     "bischerə",
     "briccone",
-    "brontolone",
     "bruttə",
     "buonə",
     "buzzurrə",
