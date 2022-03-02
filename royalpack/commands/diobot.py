@@ -116,7 +116,7 @@ WHAT = [
     "vile",
     "villanə",
     "viscidə",
-    "zotiə",
+    "zoticə",
 ]
 
 
