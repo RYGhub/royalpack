@@ -5,19 +5,19 @@ import random
 
 WHO = [
     # A chi sarà diretto l'insulto
-    "Dio",
-    "Zio",
-    "Gesù",
-    "Cristo",
-    "Maria",
-    "Madonna",
-    "Eva",
-    "Adamo",
-    "Rettore",
-    "Steffo",
-    "Bot",
-    "Telegram",
-    "Discord",
+    ["Dio", "o"],
+    ["Zio", "o"],
+    ["Gesù", "o"],
+    ["Cristo", "o"],
+    ["Maria", "a"],
+    ["Madonna", "a"],
+    ["Eva", "a"],
+    ["Adamo", "o"],
+    ["Rettore", "o"],
+    ["Steffo", "o"],
+    ["Bot", "o"],
+    ["Telegram", "o"],
+    ["Discord", "o"],
 ]
 WHAT = [
     # l'aggettivo per descrivere il soggetto
@@ -126,11 +126,11 @@ async def diobot(*, _msg: engi.Message, **__):
     """
     Il bot è molto arrabbiato e vuole creare insulti coloriti!
     """
-
-    message = "🤬 "+random.sample(WHO, 1)[0]
+    who = random.sample(WHO, 1)[0]
+    message = "🤬 " + who[0]
     for i in range(random.randint(1, 5)):
         message += " "
-        message += random.sample(WHAT, 1)[0]
+        message += random.sample(WHAT, 1)[0]. replace("ə", who[1])
     message += "!"
 
     await _msg.reply(text=message)
