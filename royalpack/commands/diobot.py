@@ -58,10 +58,10 @@ WHAT = [
 @engi.TeleportingConversation
 async def diobot(*, _msg: engi.Message, **__):
     """
-    Il bot è molto arrabbiato e vuole creare bestemmie complesse!
+    Il bot è molto arrabbiato e vuole creare insulti coloriti!
     """
 
-    message = random.sample(WHO, 1)[0]
+    message = "🤬 "+random.sample(WHO, 1)[0]
     for i in range(random.randint(1, 5)):
         message += " "
         message += random.sample(WHAT, 1)[0]
