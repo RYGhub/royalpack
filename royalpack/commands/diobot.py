@@ -130,7 +130,7 @@ async def diobot(*, _msg: engi.Message, **__):
     message = "🤬 " + who[0]
     for i in range(random.randint(1, 5)):
         message += " "
-        message += random.sample(WHAT, 1)[0]. replace("ə", who[1])
+        message += random.sample(WHAT, 1)[0].replace("ə", who[1])
     message += "!"
 
     await _msg.reply(text=message)
