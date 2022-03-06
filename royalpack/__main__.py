@@ -1,18 +1,18 @@
+import logging
+import pathlib
+import re
+
+import coloredlogs
 import discord
 import pkg_resources
 import royalnet.engineer as engi
 import royalnet.scrolls as sc
-import royalnet_telethon as rt
 import royalnet_discordpy as rd
-import pathlib
-import re
-import coloredlogs
-import sentry_sdk
+import royalnet_telethon as rt
 import sentry_sdk.integrations.atexit
 import sentry_sdk.integrations.dedupe
 import sentry_sdk.integrations.modules
 import sentry_sdk.integrations.threading
-import logging
 
 from . import commands
 from .database import engine, base
@@ -101,11 +101,13 @@ register_telegram(tg_router, commands.whoami, ["whoami"])
 register_telegram(tg_router, commands.fiorygi_balance_self, ["balance"])
 register_telegram(tg_router, commands.fiorygi_balance_other, ["balance"], r"(?P<target>\S+)")
 register_telegram(tg_router, commands.fiorygi_give, ["give"], r"(?P<target>\S+)\s+(?P<amount>[0-9]+)\s+(?P<reason>.+)")
-register_telegram(tg_router, commands.fiorygi_magick, ["magick"], r"(?P<target>\S+)\s+(?P<amount>[0-9]+)\s+(?P<reason>.+)")
+register_telegram(tg_router, commands.fiorygi_magick, ["magick"],
+                  r"(?P<target>\S+)\s+(?P<amount>[0-9]+)\s+(?P<reason>.+)")
 register_telegram(tg_router, commands.fiorygi_transactions_self, ["transactions"])
 register_telegram(tg_router, commands.fiorygi_transactions_other, ["transactions"], r"(?P<target>\S+)")
 register_telegram(tg_router, commands.fiorygi_dig, ["dig"], r"(?P<slug>[a-z0-9-]+)")
-register_telegram(tg_router, commands.fiorygi_bury, ["bury"], r"(?P<slug>[a-z0-9-]+)\s+(?P<value>[0-9]+)(?:\s+(?P<message>.+))?")
+register_telegram(tg_router, commands.fiorygi_bury, ["bury"],
+                  r"(?P<slug>[a-z0-9-]+)\s+(?P<value>[0-9]+)(?:\s+(?P<message>.+))?")
 register_telegram(tg_router, commands.version, ["version"])
 register_telegram(tg_router, commands.cv, ["cv", "civù"])
 register_telegram(tg_router, commands.rocoinflip, ["rocoinflip"], r'"(?P<teama>[^"]+)"\s+"(?P<teamb>[^"]+)"')
@@ -135,11 +137,13 @@ register_discord(ds_router, commands.whoami, ["whoami"])
 register_discord(ds_router, commands.fiorygi_balance_self, ["balance"])
 register_discord(ds_router, commands.fiorygi_balance_other, ["balance"], r"(?P<target>\S+)")
 register_discord(ds_router, commands.fiorygi_give, ["give"], r"(?P<target>\S+)\s+(?P<amount>[0-9]+)\s+(?P<reason>.+)")
-register_discord(ds_router, commands.fiorygi_magick, ["magick"], r"(?P<target>\S+)\s+(?P<amount>[0-9]+)\s+(?P<reason>.+)")
+register_discord(ds_router, commands.fiorygi_magick, ["magick"],
+                 r"(?P<target>\S+)\s+(?P<amount>[0-9]+)\s+(?P<reason>.+)")
 register_discord(ds_router, commands.fiorygi_transactions_self, ["transactions"])
 register_discord(ds_router, commands.fiorygi_transactions_other, ["transactions"], r"(?P<target>\S+)")
 register_discord(ds_router, commands.fiorygi_dig, ["dig"], r"(?P<slug>[a-z0-9-]+)")
-register_discord(ds_router, commands.fiorygi_bury, ["bury"], r"(?P<slug>[a-z0-9-]+)\s+(?P<value>[0-9]+)(?:\s+(?P<message>.+))?")
+register_discord(ds_router, commands.fiorygi_bury, ["bury"],
+                 r"(?P<slug>[a-z0-9-]+)\s+(?P<value>[0-9]+)(?:\s+(?P<message>.+))?")
 register_discord(ds_router, commands.version, ["version"])
 register_discord(ds_router, commands.rocoinflip, ["rocoinflip"], r'"(?P<teama>[^"]+)"\s+"(?P<teamb>[^"]+)"')
 register_discord(ds_router, commands.hack, ["hack"], r'(?P<activity>.+)')
@@ -148,6 +152,5 @@ register_discord(ds_router, commands.loginprogress, ["loginprogress"])
 
 pda.implementations["telethon.1"].register_conversation(tg_router)
 pda.implementations["discordpy.2"].register_conversation(ds_router)
-
 
 pda.run()

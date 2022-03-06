@@ -1,16 +1,16 @@
 from __future__ import annotations
-import typing as t
-import sqlalchemy as s
-import sqlalchemy.sql as ss
-import sqlalchemy.orm as so
-import sqlalchemy.ext.declarative as sed
-import sqlalchemy_utils as su
-import royalnet.alchemist as ra
-import colour
 
+import typing as t
+
+import colour
+import royalnet.alchemist as ra
+import sqlalchemy as s
+import sqlalchemy.ext.declarative as sed
+import sqlalchemy.orm as so
+import sqlalchemy.sql as ss
+import sqlalchemy_utils as su
 
 Base: sed.declarative_base = sed.declarative_base()
-
 
 user_title_association = s.Table(
     "user_title_association",

@@ -1,8 +1,7 @@
-import sqlalchemy.orm
 import royalnet.lazy
+import sqlalchemy.orm
 
 from ..config import *
-
 
 lazy_engine = royalnet.lazy.Lazy(lambda c: sqlalchemy.create_engine(c["database.uri"]), c=lazy_config)
 """

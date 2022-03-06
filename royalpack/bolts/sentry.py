@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import functools
 import logging
+
 import sentry_sdk
 
 log = logging.getLogger(__name__)

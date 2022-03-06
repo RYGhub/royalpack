@@ -1,7 +1,8 @@
-import royalnet.engineer as engi
-import royalpack.bolts as rb
 import random
 
+import royalnet.engineer as engi
+
+import royalpack.bolts as rb
 
 _emojis = {
     "abcd": ["🔡", "🔠"],

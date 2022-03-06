@@ -1,7 +1,8 @@
-import royalnet.engineer as engi
-import royalpack.bolts as rb
-import datetime
 import random
+
+import royalnet.engineer as engi
+
+import royalpack.bolts as rb
 
 WHO = [
     # A chi sarà diretto l'insulto
@@ -22,7 +23,7 @@ WHO = [
 WHAT = [
     # l'aggettivo per descrivere il soggetto
     # Non deve essere per forza un insulto, anche qualche neutro è bene accetto e dà quel po' di random in più
-    
+
     "aguzzin+",
     "alcolizzat+",
     "antic+",

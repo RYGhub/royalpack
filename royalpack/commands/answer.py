@@ -1,8 +1,9 @@
-import royalnet.engineer as engi
-import royalpack.bolts as rb
 import datetime
 import random
 
+import royalnet.engineer as engi
+
+import royalpack.bolts as rb
 
 ANSWERS = [
     # Cerchiamo di tenere bilanciate le tre colonne, o almeno le prime due.

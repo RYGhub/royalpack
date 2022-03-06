@@ -7,10 +7,11 @@ Data is fetched from the `Toofz API`_, which in turn fetches it from the Steam l
 .. _SteamKit: https://github.com/SteamRE/SteamKit
 """
 
-import royalnet.royaltyping as t
-import aiohttp
 import asyncio
 import datetime
+
+import aiohttp
+import royalnet.royaltyping as t
 
 
 async def get_leaderboards_info() -> list[t.JSON]:
@@ -50,7 +51,8 @@ async def get_all_leaderboard_entries(lbid):
 
     while total is None or offset < total:
         async with aiohttp.ClientSession() as session:
-            async with session.get(f"https://api.toofz.com/leaderboards/dailies/{lbid}/entries?offset={offset}&limit=100") as request:
+            async with session.get(
+                    f"https://api.toofz.com/leaderboards/dailies/{lbid}/entries?offset={offset}&limit=100") as request:
                 print(f"{total=} {offset=} {result=}")
                 data = await request.json()
                 assert data["leaderboard"]["id"] == lbid

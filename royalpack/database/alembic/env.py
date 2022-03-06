@@ -1,16 +1,13 @@
 import logging.config
-import sqlalchemy
-import sqlalchemy.pool
+
 import alembic
 
+from royalpack.config import lazy_config
 from royalpack.database.base import Base
 from royalpack.database.engine import lazy_engine
-from royalpack.config import lazy_config
-
 
 # Set up logging
 logging.config.fileConfig(alembic.context.config.config_file_name)
-
 
 # Get the metadata
 target_metadata = Base.metadata

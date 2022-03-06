@@ -1,10 +1,12 @@
-import royalnet.royaltyping as t
-import royalnet.engineer as engi
-import royalnet_discordpy as rd
-import royalpack.bolts as rb
+import itertools
+
 import discord
 import discord.channel
-import itertools
+import royalnet.engineer as engi
+import royalnet.royaltyping as t
+import royalnet_discordpy as rd
+
+import royalpack.bolts as rb
 
 
 @rb.capture_errors

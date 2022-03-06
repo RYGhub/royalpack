@@ -1,9 +1,9 @@
 import royalnet.engineer as engi
-import royalpack.database as db
 import sqlalchemy.orm as so
 import sqlalchemy.sql as ss
-import royalpack.bolts as rb
 
+import royalpack.bolts as rb
+import royalpack.database as db
 
 expected = [
     "mrdima",
@@ -78,7 +78,6 @@ async def loginprogress(*, _msg: engi.Message, _session: so.Session, **__):
     discord = list(map(_has_discord_account, expected))
 
     def _render_line(index: int) -> str:
-
         def _telegram_emoji() -> str:
             return telegram_emoji(telegram[index])
 

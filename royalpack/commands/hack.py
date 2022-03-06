@@ -1,10 +1,9 @@
-import royalnet.royaltyping as t
-import royalnet.engineer as engi
-import royalnet_discordpy
-import royalnet_discordpy.bullet.contents
 import discord
 import discord.http
-
+import royalnet.engineer as engi
+import royalnet.royaltyping as t
+import royalnet_discordpy
+import royalnet_discordpy.bullet.contents
 
 activities = {
     "yt": 755600276941176913,

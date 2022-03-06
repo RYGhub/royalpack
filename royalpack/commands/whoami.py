@@ -1,6 +1,7 @@
 import royalnet.engineer as engi
-import royalpack.database as db
+
 import royalpack.bolts as rb
+import royalpack.database as db
 
 
 @rb.capture_errors

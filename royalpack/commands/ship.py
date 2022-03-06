@@ -1,8 +1,9 @@
 import logging
 import re
-import royalpack.bolts as rb
 
 import royalnet.engineer as engi
+
+import royalpack.bolts as rb
 
 log = logging.getLogger(__name__)
 
