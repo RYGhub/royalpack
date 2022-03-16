@@ -19,6 +19,8 @@ WHO = [
     [1, "Bot"],
     [1, "Telegram"],
     [1, "Discord"],
+    [3, "Rygatoni"],
+    [3, "Moderatori"],
 ]
 WHAT = [
     # l'aggettivo per descrivere il soggetto
