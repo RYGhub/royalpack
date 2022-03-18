@@ -4,11 +4,11 @@ import royalnet.engineer as engi
 
 import royalpack.bolts as rb
 
-from collections import namedTuple
+from collections import namedtuple
 
 
 # A chi sarà diretto l'insulto
-Who = namedTuple('Who', ['name', 'gender']) 
+Who = namedtuple('Who', ['name', 'gender']) 
 
 # Gender:
 # SM    Singolare Maschile
@@ -19,7 +19,7 @@ Who = namedTuple('Who', ['name', 'gender'])
 
 # l'aggettivo per descrivere il soggetto
 # Non deve essere per forza un insulto, anche qualche neutro è bene accetto e dà quel po' di random in più
-What = namedTuple('What', ['radix', 'sm', 'sf', 'pm', 'pf'])
+What = namedtuple('What', ['radix', 'sm', 'sf', 'pm', 'pf'])
 
 who_array = [
     Who("Dio",        "sm"),
