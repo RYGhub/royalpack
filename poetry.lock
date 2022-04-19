@@ -528,7 +528,7 @@ toml = ">=0.10.1,<0.11.0"
 
 [[package]]
 name = "royalnet-console"
-version = "6.6.0"
+version = "6.6.2"
 description = "A terminal-based frontend for the royalnet.engineer module."
 category = "main"
 optional = false
@@ -903,7 +903,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "c90c103650d05c85866baf8a0c5a4ee3366e64fe8e822315f85065119b79c87e"
+content-hash = "63586c1eb9797e315a1b05d76f7b182bcd185cf4bcbe256aa69bc2440b903387"
 
 [metadata.files]
 aiohttp = [
@@ -1389,8 +1389,8 @@ royalnet = [
     {file = "royalnet-6.6.0.tar.gz", hash = "sha256:133ed6785bb35ea57a40d41d5aecbf857f7b62460ed85b3ea273d9d2ddb83435"},
 ]
 royalnet-console = [
-    {file = "royalnet-console-6.6.0.tar.gz", hash = "sha256:455cf0ffa0705389409615605fdc4ee46a72b2875f4a7f4b70f3fc0fe7dea1c6"},
-    {file = "royalnet_console-6.6.0-py3-none-any.whl", hash = "sha256:b4f1d7558afbc1cd90379390f73087ca827c4f244410e1d830227030af6e55f1"},
+    {file = "royalnet-console-6.6.2.tar.gz", hash = "sha256:67f84cb731fd720e88b04e753e3fe66e7959a6d302cd8643da7e28bc76b04ef1"},
+    {file = "royalnet_console-6.6.2-py3-none-any.whl", hash = "sha256:2ad11ceb1f680cfa9ea884a0302d5e2c56bd7a2e2418eb98dcad916a15b848d4"},
 ]
 royalnet-discordpy = [
     {file = "royalnet-discordpy-6.6.1.tar.gz", hash = "sha256:39723f08a58801d1bbcc730dd4f90bc0782c2216f93494811f64fdbab18a0a47"},
