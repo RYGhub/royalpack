@@ -555,7 +555,7 @@ royalnet = ">=6.6.0,<6.7.0"
 
 [[package]]
 name = "royalnet-telethon"
-version = "6.6.0"
+version = "6.6.2"
 description = "A Telethon-based frontend for the royalnet.engineer module."
 category = "main"
 optional = false
@@ -903,7 +903,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "c90c103650d05c85866baf8a0c5a4ee3366e64fe8e822315f85065119b79c87e"
+content-hash = "63586c1eb9797e315a1b05d76f7b182bcd185cf4bcbe256aa69bc2440b903387"
 
 [metadata.files]
 aiohttp = [
@@ -1397,8 +1397,8 @@ royalnet-discordpy = [
     {file = "royalnet_discordpy-6.6.1-py3-none-any.whl", hash = "sha256:a5d23436db7f7720c7a52bc8bf8cb0ec1c6cb30f5f9dbf5437a1eab8a477c7b0"},
 ]
 royalnet-telethon = [
-    {file = "royalnet-telethon-6.6.0.tar.gz", hash = "sha256:33eb7a480f0faac4d1f8d89cb9544174dc5bec4d25d5d5916f5ab7ad4987f5fd"},
-    {file = "royalnet_telethon-6.6.0-py3-none-any.whl", hash = "sha256:7cbf8a1e81cba4bca3990920dc8051de501ed79ceb2da748e3d4df873e2fc68a"},
+    {file = "royalnet-telethon-6.6.2.tar.gz", hash = "sha256:42b8fb682ae00832676eec72ad7249312c8fda0fd25ca4888dad1d933009447c"},
+    {file = "royalnet_telethon-6.6.2-py3-none-any.whl", hash = "sha256:758edcc88db05a4a9d47a36468ee9577275e7c7f0fdedb2f088de4dd5962a14b"},
 ]
 royalspells = [
     {file = "royalspells-3.2.tar.gz", hash = "sha256:2bd4a9a66514532e35c02c3907425af48c7cb292364c4843c795719a82b25dfe"},
