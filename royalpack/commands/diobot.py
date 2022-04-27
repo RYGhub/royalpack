@@ -22,21 +22,37 @@ Who = namedtuple('Who', ['name', 'gender'])
 What = namedtuple('What', ['radix', 'sm', 'sf', 'pm', 'pf'])
 
 who_array = [
-    Who("Dio",        "sm"),
-    Who("Zio",        "sm"),
-    Who("Gesù",       "sm"),
-    Who("Cristo",     "sm"),
-    Who("Maria",      "sf"),
-    Who("Madonna",    "sf"),
-    Who("Eva",        "sf"),
-    Who("Adamo",      "sm"),
-    Who("Rettore",    "sm"),
-    Who("Steffo",     "sm"),
-    Who("Bot",        "sm"),
-    Who("Telegram",   "sm"),
-    Who("Discord",    "sm"),
-    Who("Rygatoni",   "pm"),
-    Who("Moderatori", "pm"),
+    Who("Dio",          "sm"),
+    Who("Zio",          "sm"),
+    Who("Gesù",         "sm"),
+    Who("Cristo",       "sm"),
+    Who("Adamo",        "sm"),
+    Who("Rettore",      "sm"),
+    Who("Steffo",       "sm"),
+    Who("Ruozi",        "sm"),
+    Who("Bot",          "sm"),
+    Who("Telegram",     "sm"),
+    Who("Discord",      "sm"),
+    Who("Linux",        "sm"),
+    Who("Windows",      "sm"),
+    Who("MacOS",        "sm"),
+    Who("Evangelion",   "sm"),
+    Who("Garfield Kart","sm"),
+    Who("Governo",      "sm"),
+
+    Who("Maria",        "sf"),
+    Who("Madonna",      "sf"),
+    Who("Eva",          "sf"),
+    Who("Festà",        "sf"),
+    Who("Corriera",     "sf"),
+
+    Who("Rygatoni",     "pm"),
+    Who("Moderatori",   "pm"),
+    Who("Organizzatori","pm"),
+    Who("Dotari",       "pm"),
+
+    Who("Zanzare",      "pf"),
+    Who("Verdure",      "pf"),
 ]
 
 what_array = [
