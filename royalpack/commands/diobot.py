@@ -29,7 +29,6 @@ who_array = [
     Who("Adamo",        "sm"),
     Who("Rettore",      "sm"),
     Who("Steffo",       "sm"),
-    Who("Ruozi",        "sm"),
     Who("Bot",          "sm"),
     Who("Telegram",     "sm"),
     Who("Discord",      "sm"),
