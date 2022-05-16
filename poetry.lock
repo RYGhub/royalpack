@@ -808,7 +808,7 @@ url = ["furl (>=0.4.1)"]
 
 [[package]]
 name = "steam"
-version = "1.2.1"
+version = "1.3.0"
 description = "Module for interacting with various Steam features"
 category = "main"
 optional = false
@@ -822,7 +822,7 @@ six = ">=1.10"
 vdf = ">=3.3"
 
 [package.extras]
-client = ["gevent (>=1.3.0)", "gevent-eventemitter (>=2.1,<3.0)", "protobuf (<3.18.0)"]
+client = ["gevent (>=1.3.0)", "gevent-eventemitter (>=2.1,<3.0)", "protobuf (<3.18.0)", "protobuf (>=3.0,<4.0)"]
 
 [[package]]
 name = "telethon"
@@ -1493,7 +1493,7 @@ sqlalchemy-utils = [
     {file = "SQLAlchemy_Utils-0.37.9-py3-none-any.whl", hash = "sha256:bb6f4da8ac044cb0dd4d0278b1fb434141a5ee9d1881c757a076830ddbb04160"},
 ]
 steam = [
-    {file = "steam-1.2.1.tar.gz", hash = "sha256:feeb9eacb336ec62b17fcc4867413359dd51fc035a5ae61f8c8a15b402004e58"},
+    {file = "steam-1.3.0.tar.gz", hash = "sha256:a40e0295e73259da2995ddbb2e7a06069db2948bc232f72f28cc7079a8737516"},
 ]
 telethon = [
     {file = "Telethon-1.24.0-py3-none-any.whl", hash = "sha256:04fdc5fa4ed3e886e6ecf4bad79205ab8880c6aefbd42c29c89c689a502aa816"},
