@@ -9,7 +9,7 @@ ANSWERS = [
     # Cerchiamo di tenere bilanciate le tre colonne, o almeno le prime due.
     # Se avete un'idea ma metterebbe troppe opzioni in un'unica categoria, mettetela sotto commento.
 
-    # risposte "sì": 19
+    # risposte "sì": 20
     "🔵 Sì.",
     "🔵 Decisamente sì!",
     "🔵 Uhm, secondo me sì.",
@@ -29,8 +29,9 @@ ANSWERS = [
     "🔵 Ha senso, ha perfettamente senso, nulla da obiettare, ha senso.",
     "🔵 Yos!",
     "🔵 Sì, ma tienilo segreto...",
+    "🔵 [RADIO] Affermativo.",
 
-    # risposte "no": 19
+    # risposte "no": 20
     "❌ No.",
     "❌ Decisamente no!",
     "❌ Uhm, secondo me sì. No, aspetta, ci ho ripensato. È un no.",
@@ -50,8 +51,9 @@ ANSWERS = [
     "❌ Delet dis",
     "❌ Nopety nope!",
     "❌ No, ma tienilo segreto.",
+    "❌ [RADIO] Negativo.",
 
-    # risposte "boh": 19
+    # risposte "boh": 20
     "❔ Boh.",
     "❔ E io che ne so?!",
     "❔ Non so proprio rispondere.",
@@ -71,6 +73,7 @@ ANSWERS = [
     "❔ maibi not",
     "❔ idk dude",
     "❔ Non mi è permesso condividere questa informazione.",
+    "❔ [RADIO] Mantengo la posizione.",
 ]
 
 

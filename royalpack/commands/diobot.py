@@ -38,17 +38,21 @@ who_array = [
     Who("Evangelion",   "sm"),
     Who("Garfield Kart","sm"),
     Who("Governo",      "sm"),
+    Who("Senatore",     "sm"),
 
     Who("Maria",        "sf"),
     Who("Madonna",      "sf"),
     Who("Eva",          "sf"),
     Who("Festà",        "sf"),
     Who("Corriera",     "sf"),
+    Who("Insalata",     "sf"),
 
     Who("Rygatoni",     "pm"),
     Who("Moderatori",   "pm"),
     Who("Organizzatori","pm"),
     Who("Dotari",       "pm"),
+    Who("Lollari",      "pm"),
+    Who("Fiorygi",      "pm"),
 
     Who("Zanzare",      "pf"),
     Who("Verdure",      "pf"),
