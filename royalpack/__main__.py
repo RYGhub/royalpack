@@ -111,7 +111,7 @@ register_telegram(tg_router, commands.fiorygi_bury, ["bury"],
 register_telegram(tg_router, commands.version, ["version"])
 register_telegram(tg_router, commands.cv, ["cv", "civù"])
 register_telegram(tg_router, commands.rocoinflip, ["rocoinflip"], r'"(?P<teama>[^"]+)"\s+"(?P<teamb>[^"]+)"')
-register_telegram(tg_router, commands.roll, ["roll"], r"(?P<message>.+)")
+register_telegram(tg_router, commands.roll, ["roll"], r"(?P<qty>[0-9]*)d(?P<die>[0-9]+)(?P<mod>[+-][0-9]+)")
 register_telegram(tg_router, commands.diobot, ["diobot", "phrase"])
 register_telegram(tg_router, commands.loginprogress, ["loginprogress"])
 

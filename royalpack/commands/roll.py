@@ -10,38 +10,16 @@ import royalpack.bolts as rb
 
 @rb.capture_errors
 @engi.TeleportingConversation
-async def roll(*, _msg: engi.Message, message: str, **__):
+async def roll(*, _msg: engi.Message, qty: int, die: int, mod: int, **__):
     """
-    Tira un dado
+    Tira un dado nel formato di D&D: `1d20+1`, ad esempio.
     """
-
-    if not re.match("[0-9]*d[0-9]+(\+[0-9])?(\-[0-9])?", message):
-        await _msg.reply(text="❗️ Errore: la stringa deve rispettare il pattern [quantity]d[die][modifier]")
-
-    
-    # quantità di dadi
-    quantity, die = message.split('d')
-    if(message[0] =='d'):
-        quantity = 1
-    
-    # modificatore
-    if '+' in message or '-' in message:
-        if '+' in message:
-            die, modifier = die.split('+')
-        else:
-            die, modifier = die.split('-')
-            modifier = '-'+ modifier
-    else:
-        modifier = 0    
-
-    # rendiamo tutto un int, se non lo è già
-    quantity = int(quantity)
-    die = int(die)
-    modifier = int(modifier)
 
     # modificatore supersegreto della fortuna. Ooooh! Questo è Top Secret!
+    # Steffo: hol up
     r = random.Random(x=hash(datetime.date.today()))
     luck = r.randrange(-100, 100)/100*die/3
+
     random.seed(datetime.datetime.now())
 
     # rolliamo i dadi richiesti
@@ -56,15 +34,14 @@ async def roll(*, _msg: engi.Message, message: str, **__):
         roll.append(result)
 
     # formuliamo una risposta da mostrare all'utente
-    answer = "🎲 " + message + " = "
-    answer += str(roll)
-    if modifier:
+    answer = f"🎲 {qty}d{die}{mod:+} = {roll}"
+    if mod:
         answer +=" "
-        if modifier > 0:
+        if mod > 0:
             answer += "+"
-        answer +=str(modifier)
+        answer +=str(mod)
     
-    answer += " = "+str(sum(roll)+modifier)
+    answer += " = "+str(sum(roll)+mod)
 
     await _msg.reply(text=answer)
 
