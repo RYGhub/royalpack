@@ -1,7 +1,5 @@
-from email import message
 import datetime
 import random
-import re
 
 import royalnet.engineer as engi
 
