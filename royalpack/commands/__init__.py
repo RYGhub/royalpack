@@ -21,3 +21,4 @@ from .smecds import *
 from .spell import *
 from .version import *
 from .whoami import *
+from .roll import *
