@@ -151,7 +151,12 @@ register_discord(ds_router, commands.hack, ["hack"], r'(?P<activity>.+)')
 register_discord(ds_router, commands.diobot, ["diobot", "phrase"])
 register_discord(ds_router, commands.loginprogress, ["loginprogress"])
 
-pda.implementations["telethon.1"].register_conversation(tg_router)
-pda.implementations["discordpy.2"].register_conversation(ds_router)
+# noinspection PyTypeChecker
+tg_pdai: engi.ConversationListImplementation = pda.implementations["telethon.1"]
+# noinspection PyTypeChecker
+ds_pdai: engi.ConversationListImplementation = pda.implementations["discordpy.2"]
+
+tg_pdai.register_conversation(tg_router)
+ds_pdai.register_conversation(ds_router)
 
 pda.run()
