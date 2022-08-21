@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "royalpack"
-version = "6.9.0"
+version = "6.9.1"
 description = "Royalnet Commands for the RYG community"
 authors = ["Stefano Pigozzi <me@steffo.eu>"]
 license = "AGPL-3.0-or-later"
