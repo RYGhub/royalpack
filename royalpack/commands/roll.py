@@ -74,6 +74,10 @@ async def roll(*, _msg: engi.Message, qty: int, die: int, mod: t.Optional[int], 
         answer.append(f"{result}")
         total += result
 
+    if mod and mod != 0:
+        answer.append(f"{mod:+}")
+        total += mod
+
     answer.append(f" = \uE01B{total}\uE00B")
 
     await _msg.reply(text="".join(answer))
