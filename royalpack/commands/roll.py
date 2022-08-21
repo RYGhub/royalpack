@@ -9,12 +9,15 @@ import royalpack.bolts as rb
 
 @rb.capture_errors
 @engi.TeleportingConversation
-async def roll(*, _msg: engi.Message, qty: int, die: int, mod: t.Optional[int], **__):
+async def roll(*, _msg: engi.Message, qty: t.Optional[int], die: int, mod: t.Optional[int], **__):
     """
     Tira un dado nel formato di D&D: `1d20+1`, ad esempio.
 
     Non perfettamente casuale, **non usare per competizioni o altre cose serie**!
     """
+
+    if qty is None:
+        qty = 1
 
     # modificatore supersegreto della fortuna. ooooh! questo è top secret!
     # "blame cate for this" --steffo
