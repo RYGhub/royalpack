@@ -1,9 +1,14 @@
+import logging
 import io
+import pathlib
 
 import aiohttp
 import royalnet.engineer as engi
 
 import royalpack.bolts as rb
+import royalpack.config as cfg
+
+log = logging.getLogger(__name__)
 
 
 @rb.capture_errors
@@ -12,13 +17,28 @@ async def dog_any(*, _msg: engi.Message, **__):
     """
     Invia un doggo in chat! 🐶
     """
+
+    log.debug("Evaluating config...")
+    config = cfg.lazy_config.evaluate()
+
     async with aiohttp.ClientSession() as session:
+
+        log.debug("Fetching dog (not the opposite. ironic, huh?)")
         async with session.get("https://dog.ceo/api/breeds/image/random") as response:
             result = await response.json()
             url = result["message"]
-        async with session.get(url) as response:
-            img = await response.content.read()
-    await _msg.reply(files=[io.BytesIO(img)])
+
+            filename = url.split("/")[-1]
+            path = pathlib.Path(config["files.cache.dog"]).joinpath(filename)
+            log.debug("Saving dog to: %s", path)
+
+            async with session.get(url) as response:
+                with path.open("wb") as img:
+                    img.write(await response.content.read())
+
+            await _msg.reply(files=[img])
+
+            path.unlink()
 
 
 _breeds = [

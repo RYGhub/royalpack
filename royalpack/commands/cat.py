@@ -1,10 +1,11 @@
-import io
 import logging
+import pathlib
 
 import aiohttp
 import royalnet.engineer as engi
 
 import royalpack.bolts as rb
+import royalpack.config as cfg
 
 log = logging.getLogger(__name__)
 
@@ -15,6 +16,8 @@ async def cat(*, _msg: engi.Message, **__):
     """
     Invia un gatto in chat! 🐈
     """
+    log.debug("Evaluating config...")
+    config = cfg.lazy_config.evaluate()
 
     log.debug("Creating a new HTTP session")
     async with aiohttp.ClientSession() as session:
@@ -75,14 +78,21 @@ async def cat(*, _msg: engi.Message, **__):
         log.info("Making a GET request to retrieve a The Cat API image")
         async with session.get(selected_cat["url"]) as response:
 
-            log.debug("Reading image bytes into memory")
-            img = io.BytesIO()
-            while img_data := await response.content.read(8192):
-                img.write(img_data)
-            img.seek(0)
+            filename = selected_cat["url"].split("/")[-1]
+            path = pathlib.Path(config["files.cache.cat"]).joinpath(filename)
+            log.debug("Saving cat to: %s", path)
 
-    log.debug("Sending image in the chat")
-    await _msg.reply(files=[img])
+            with path.open("wb") as img:
+                log.debug("Reading image bytes into memory")
+                while img_data := await response.content.read(8192):
+                    img.write(img_data)
+                img.seek(0)
+
+                log.debug("Sending image in the chat")
+                await _msg.reply(files=[img])
+
+            log.debug("Deleting cat...")
+            path.unlink()
 
 
 # Objects exported by this module
