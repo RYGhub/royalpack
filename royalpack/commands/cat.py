@@ -86,8 +86,8 @@ async def cat(*, _msg: engi.Message, **__):
                 log.debug("Reading image bytes into memory")
                 while img_data := await response.content.read(8192):
                     img.write(img_data)
-                img.seek(0)
 
+            with path.open("rb") as img:
                 log.debug("Sending image in the chat")
                 await _msg.reply(files=[img])
 

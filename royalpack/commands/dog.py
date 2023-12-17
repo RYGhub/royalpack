@@ -36,7 +36,8 @@ async def dog_any(*, _msg: engi.Message, **__):
                 with path.open("wb") as img:
                     img.write(await response.content.read())
 
-            await _msg.reply(files=[img])
+            with path.open("rb") as img:
+                await _msg.reply(files=[img])
 
             path.unlink()
 
